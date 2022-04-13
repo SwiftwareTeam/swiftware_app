@@ -1,0 +1,602 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AC56D8312806AC2900B558A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC56D8302806AC2900B558A6 /* AppDelegate.swift */; };
+		AC56D8332806AC2900B558A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC56D8322806AC2900B558A6 /* SceneDelegate.swift */; };
+		AC56D8352806AC2900B558A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC56D8342806AC2900B558A6 /* ViewController.swift */; };
+		AC56D8382806AC2900B558A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC56D8362806AC2900B558A6 /* Main.storyboard */; };
+		AC56D83A2806AC2B00B558A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC56D8392806AC2B00B558A6 /* Assets.xcassets */; };
+		AC56D83D2806AC2B00B558A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC56D83B2806AC2B00B558A6 /* LaunchScreen.storyboard */; };
+		AC56D8482806AC2B00B558A6 /* Stress_analyzerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC56D8472806AC2B00B558A6 /* Stress_analyzerTests.swift */; };
+		AC56D8532806AC2C00B558A6 /* Stress_analyzerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC56D8522806AC2C00B558A6 /* Stress_analyzerUITests.swift */; };
+		AC56D864280736C400B558A6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC56D863280736C300B558A6 /* Model.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AC56D8442806AC2B00B558A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC56D8252806AC2900B558A6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC56D82C2806AC2900B558A6;
+			remoteInfo = "Stress analyzer";
+		};
+		AC56D84F2806AC2C00B558A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC56D8252806AC2900B558A6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC56D82C2806AC2900B558A6;
+			remoteInfo = "Stress analyzer";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AC56D82D2806AC2900B558A6 /* Stress analyzer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stress analyzer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC56D8302806AC2900B558A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AC56D8322806AC2900B558A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		AC56D8342806AC2900B558A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AC56D8372806AC2900B558A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AC56D8392806AC2B00B558A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AC56D83C2806AC2B00B558A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AC56D83E2806AC2B00B558A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC56D8432806AC2B00B558A6 /* Stress analyzerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stress analyzerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC56D8472806AC2B00B558A6 /* Stress_analyzerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stress_analyzerTests.swift; sourceTree = "<group>"; };
+		AC56D8492806AC2B00B558A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC56D84E2806AC2C00B558A6 /* Stress analyzerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stress analyzerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC56D8522806AC2C00B558A6 /* Stress_analyzerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stress_analyzerUITests.swift; sourceTree = "<group>"; };
+		AC56D8542806AC2C00B558A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC56D863280736C300B558A6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AC56D82A2806AC2900B558A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC56D8402806AC2B00B558A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC56D84B2806AC2C00B558A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AC56D8242806AC2900B558A6 = {
+			isa = PBXGroup;
+			children = (
+				AC56D82F2806AC2900B558A6 /* Stress analyzer */,
+				AC56D8462806AC2B00B558A6 /* Stress analyzerTests */,
+				AC56D8512806AC2C00B558A6 /* Stress analyzerUITests */,
+				AC56D82E2806AC2900B558A6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AC56D82E2806AC2900B558A6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC56D82D2806AC2900B558A6 /* Stress analyzer.app */,
+				AC56D8432806AC2B00B558A6 /* Stress analyzerTests.xctest */,
+				AC56D84E2806AC2C00B558A6 /* Stress analyzerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC56D82F2806AC2900B558A6 /* Stress analyzer */ = {
+			isa = PBXGroup;
+			children = (
+				AC56D8302806AC2900B558A6 /* AppDelegate.swift */,
+				AC56D8322806AC2900B558A6 /* SceneDelegate.swift */,
+				AC56D8342806AC2900B558A6 /* ViewController.swift */,
+				AC56D8362806AC2900B558A6 /* Main.storyboard */,
+				AC56D863280736C300B558A6 /* Model.swift */,
+				AC56D8392806AC2B00B558A6 /* Assets.xcassets */,
+				AC56D83B2806AC2B00B558A6 /* LaunchScreen.storyboard */,
+				AC56D83E2806AC2B00B558A6 /* Info.plist */,
+			);
+			path = "Stress analyzer";
+			sourceTree = "<group>";
+		};
+		AC56D8462806AC2B00B558A6 /* Stress analyzerTests */ = {
+			isa = PBXGroup;
+			children = (
+				AC56D8472806AC2B00B558A6 /* Stress_analyzerTests.swift */,
+				AC56D8492806AC2B00B558A6 /* Info.plist */,
+			);
+			path = "Stress analyzerTests";
+			sourceTree = "<group>";
+		};
+		AC56D8512806AC2C00B558A6 /* Stress analyzerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AC56D8522806AC2C00B558A6 /* Stress_analyzerUITests.swift */,
+				AC56D8542806AC2C00B558A6 /* Info.plist */,
+			);
+			path = "Stress analyzerUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AC56D82C2806AC2900B558A6 /* Stress analyzer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC56D8572806AC2C00B558A6 /* Build configuration list for PBXNativeTarget "Stress analyzer" */;
+			buildPhases = (
+				AC56D8292806AC2900B558A6 /* Sources */,
+				AC56D82A2806AC2900B558A6 /* Frameworks */,
+				AC56D82B2806AC2900B558A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Stress analyzer";
+			productName = "Stress analyzer";
+			productReference = AC56D82D2806AC2900B558A6 /* Stress analyzer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AC56D8422806AC2B00B558A6 /* Stress analyzerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC56D85A2806AC2C00B558A6 /* Build configuration list for PBXNativeTarget "Stress analyzerTests" */;
+			buildPhases = (
+				AC56D83F2806AC2B00B558A6 /* Sources */,
+				AC56D8402806AC2B00B558A6 /* Frameworks */,
+				AC56D8412806AC2B00B558A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC56D8452806AC2B00B558A6 /* PBXTargetDependency */,
+			);
+			name = "Stress analyzerTests";
+			productName = "Stress analyzerTests";
+			productReference = AC56D8432806AC2B00B558A6 /* Stress analyzerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AC56D84D2806AC2C00B558A6 /* Stress analyzerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC56D85D2806AC2C00B558A6 /* Build configuration list for PBXNativeTarget "Stress analyzerUITests" */;
+			buildPhases = (
+				AC56D84A2806AC2C00B558A6 /* Sources */,
+				AC56D84B2806AC2C00B558A6 /* Frameworks */,
+				AC56D84C2806AC2C00B558A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC56D8502806AC2C00B558A6 /* PBXTargetDependency */,
+			);
+			name = "Stress analyzerUITests";
+			productName = "Stress analyzerUITests";
+			productReference = AC56D84E2806AC2C00B558A6 /* Stress analyzerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AC56D8252806AC2900B558A6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					AC56D82C2806AC2900B558A6 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					AC56D8422806AC2B00B558A6 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = AC56D82C2806AC2900B558A6;
+					};
+					AC56D84D2806AC2C00B558A6 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = AC56D82C2806AC2900B558A6;
+					};
+				};
+			};
+			buildConfigurationList = AC56D8282806AC2900B558A6 /* Build configuration list for PBXProject "Stress analyzer" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AC56D8242806AC2900B558A6;
+			productRefGroup = AC56D82E2806AC2900B558A6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AC56D82C2806AC2900B558A6 /* Stress analyzer */,
+				AC56D8422806AC2B00B558A6 /* Stress analyzerTests */,
+				AC56D84D2806AC2C00B558A6 /* Stress analyzerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AC56D82B2806AC2900B558A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC56D83D2806AC2B00B558A6 /* LaunchScreen.storyboard in Resources */,
+				AC56D83A2806AC2B00B558A6 /* Assets.xcassets in Resources */,
+				AC56D8382806AC2900B558A6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC56D8412806AC2B00B558A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC56D84C2806AC2C00B558A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AC56D8292806AC2900B558A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC56D8352806AC2900B558A6 /* ViewController.swift in Sources */,
+				AC56D8312806AC2900B558A6 /* AppDelegate.swift in Sources */,
+				AC56D8332806AC2900B558A6 /* SceneDelegate.swift in Sources */,
+				AC56D864280736C400B558A6 /* Model.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC56D83F2806AC2B00B558A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC56D8482806AC2B00B558A6 /* Stress_analyzerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC56D84A2806AC2C00B558A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC56D8532806AC2C00B558A6 /* Stress_analyzerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AC56D8452806AC2B00B558A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC56D82C2806AC2900B558A6 /* Stress analyzer */;
+			targetProxy = AC56D8442806AC2B00B558A6 /* PBXContainerItemProxy */;
+		};
+		AC56D8502806AC2C00B558A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC56D82C2806AC2900B558A6 /* Stress analyzer */;
+			targetProxy = AC56D84F2806AC2C00B558A6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AC56D8362806AC2900B558A6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC56D8372806AC2900B558A6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AC56D83B2806AC2B00B558A6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC56D83C2806AC2B00B558A6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AC56D8552806AC2C00B558A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AC56D8562806AC2C00B558A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AC56D8582806AC2C00B558A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YSHDDUKZCZ;
+				INFOPLIST_FILE = "Stress analyzer/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "rookieware.Stress-analyzer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AC56D8592806AC2C00B558A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YSHDDUKZCZ;
+				INFOPLIST_FILE = "Stress analyzer/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "rookieware.Stress-analyzer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AC56D85B2806AC2C00B558A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YSHDDUKZCZ;
+				INFOPLIST_FILE = "Stress analyzerTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "rookieware.Stress-analyzerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stress analyzer.app/Stress analyzer";
+			};
+			name = Debug;
+		};
+		AC56D85C2806AC2C00B558A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YSHDDUKZCZ;
+				INFOPLIST_FILE = "Stress analyzerTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "rookieware.Stress-analyzerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stress analyzer.app/Stress analyzer";
+			};
+			name = Release;
+		};
+		AC56D85E2806AC2C00B558A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YSHDDUKZCZ;
+				INFOPLIST_FILE = "Stress analyzerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "rookieware.Stress-analyzerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Stress analyzer";
+			};
+			name = Debug;
+		};
+		AC56D85F2806AC2C00B558A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YSHDDUKZCZ;
+				INFOPLIST_FILE = "Stress analyzerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "rookieware.Stress-analyzerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Stress analyzer";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AC56D8282806AC2900B558A6 /* Build configuration list for PBXProject "Stress analyzer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC56D8552806AC2C00B558A6 /* Debug */,
+				AC56D8562806AC2C00B558A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC56D8572806AC2C00B558A6 /* Build configuration list for PBXNativeTarget "Stress analyzer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC56D8582806AC2C00B558A6 /* Debug */,
+				AC56D8592806AC2C00B558A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC56D85A2806AC2C00B558A6 /* Build configuration list for PBXNativeTarget "Stress analyzerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC56D85B2806AC2C00B558A6 /* Debug */,
+				AC56D85C2806AC2C00B558A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC56D85D2806AC2C00B558A6 /* Build configuration list for PBXNativeTarget "Stress analyzerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC56D85E2806AC2C00B558A6 /* Debug */,
+				AC56D85F2806AC2C00B558A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AC56D8252806AC2900B558A6 /* Project object */;
+}
