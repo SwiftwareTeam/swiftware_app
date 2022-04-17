@@ -48,13 +48,13 @@ class ViewController: UIViewController, UISearchResultsUpdating, UISearchControl
         //searchText.delegate = self
         
         title = "Search"
-        searchControl.searchResultsUpdater = self
+        //searchControl.searchResultsUpdater = self
         
         table.delegate = self
         table.dataSource = self
         table.isHidden = true
         field.delegate = self
-        navigationItem.searchController = searchControl
+        //navigationItem.searchController = searchControl
     }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if let fieldtext = textField.text {
