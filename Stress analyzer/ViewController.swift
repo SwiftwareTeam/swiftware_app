@@ -29,6 +29,9 @@ class ViewController: UIViewController, UISearchResultsUpdating, UISearchControl
     @IBOutlet var table: UITableView!
     @IBOutlet var field: UITextField!
     
+    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var answerLabel: UILabel!
+    
     
     var Data = [String]()
     var Filtered = [String]()
@@ -85,10 +88,14 @@ class ViewController: UIViewController, UISearchResultsUpdating, UISearchControl
         print(Filtered[indexPath.row])
         sendQueryToServer(Filtered[indexPath.row])
         tableView.isHidden = true
+        //tableView.removeFromSuperview()
     }
     
     func sendQueryToServer(_ query: String) {
         // query contains u## selected from
+        // after dictionary is returned
+        questionLabel.text = "\(query) updateQ"
+        answerLabel.text = "updateA"
     }
     
     
