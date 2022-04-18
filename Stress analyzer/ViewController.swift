@@ -10,6 +10,8 @@ import SwiftUI
 import Foundation
 import UIKit
 
+
+
 class ViewController: UIViewController, UISearchResultsUpdating, UISearchControllerDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     var searched: String?
@@ -94,8 +96,8 @@ class ViewController: UIViewController, UISearchResultsUpdating, UISearchControl
     func sendQueryToServer(_ query: String) {
         // query contains u## selected from
         // after dictionary is returned
-        questionLabel.text = "\(query) updateQ"
-        answerLabel.text = "updateA"
+        let url = "http://swiftware.tech/getResponses/" + query
+        let res = try.drop.client.get(url)
     }
     
     

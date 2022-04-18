@@ -16,6 +16,8 @@
 		AC56D8482806AC2B00B558A6 /* Stress_analyzerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC56D8472806AC2B00B558A6 /* Stress_analyzerTests.swift */; };
 		AC56D8532806AC2C00B558A6 /* Stress_analyzerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC56D8522806AC2C00B558A6 /* Stress_analyzerUITests.swift */; };
 		AC56D864280736C400B558A6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC56D863280736C300B558A6 /* Model.swift */; };
+		D89DE26E280E1BDD0070AB0E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89DE26D280E1BDD0070AB0E /* Network.swift */; };
+		D89DE270280E1ECA0070AB0E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89DE26F280E1ECA0070AB0E /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		AC56D8522806AC2C00B558A6 /* Stress_analyzerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stress_analyzerUITests.swift; sourceTree = "<group>"; };
 		AC56D8542806AC2C00B558A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC56D863280736C300B558A6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		D89DE26D280E1BDD0070AB0E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		D89DE26F280E1ECA0070AB0E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 				AC56D8392806AC2B00B558A6 /* Assets.xcassets */,
 				AC56D83B2806AC2B00B558A6 /* LaunchScreen.storyboard */,
 				AC56D83E2806AC2B00B558A6 /* Info.plist */,
+				D89DE26D280E1BDD0070AB0E /* Network.swift */,
+				D89DE26F280E1ECA0070AB0E /* User.swift */,
 			);
 			path = "Stress analyzer";
 			sourceTree = "<group>";
@@ -261,7 +267,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D89DE26E280E1BDD0070AB0E /* Network.swift in Sources */,
 				AC56D8352806AC2900B558A6 /* ViewController.swift in Sources */,
+				D89DE270280E1ECA0070AB0E /* User.swift in Sources */,
 				AC56D8312806AC2900B558A6 /* AppDelegate.swift in Sources */,
 				AC56D8332806AC2900B558A6 /* SceneDelegate.swift in Sources */,
 				AC56D864280736C400B558A6 /* Model.swift in Sources */,

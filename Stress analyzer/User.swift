@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+struct User: Identifiable, Decodable {
+    var id: String?
+    
+    struct type : Decodable {
+        var question = [String: String]()
+    
+    }
+    
+    
+}

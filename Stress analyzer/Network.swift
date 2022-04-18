@@ -6,3 +6,13 @@
 //
 
 import Foundation
+import SwiftUI
+class Network:ObservableObject{
+    
+    
+    @Published var users: [User] = []
+    func getUser(){
+        guard let url = URL(string: "http://swiftware.tech/getResponses/") else { fatalError("Missing URL") }
+        
+    }
+}
