@@ -4,7 +4,6 @@
 //
 //  Created by Adrian on 4/12/22.
 //
-
 //import UIKit
 import SwiftUI
 import Foundation
@@ -62,7 +61,6 @@ class ViewController: UIViewController, UISearchResultsUpdating, UISearchControl
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if let fieldtext = textField.text {
             let query = fieldtext + string
-            print(query)
             Filtered.removeAll()
             for str in Data {
                 if str.contains(query) {
@@ -71,7 +69,10 @@ class ViewController: UIViewController, UISearchResultsUpdating, UISearchControl
             }
             table.reloadData()
         }
+        
+        
         return true
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -85,17 +86,85 @@ class ViewController: UIViewController, UISearchResultsUpdating, UISearchControl
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(Filtered[indexPath.row])
-        sendQueryToServer(Filtered[indexPath.row])
+        //print("im there: " + Filtered[indexPath.row])
+        do{
+            try sendQueryToServer(Filtered[indexPath.row])
+        }
+        catch{
+            print ("error has occurred while sending query to server in table view")
+        }
         tableView.isHidden = true
         //tableView.removeFromSuperview()
     }
     
-    func sendQueryToServer(_ query: String) {
+    struct UserResponse: Codable {
+        var post: Dictionary<String,String>
+    }
+    var baseEndpoint = "http://swiftware.tech/getResponses/"
+    //added an exception domain to the link above, changed from https to http
+    
+    func sendQueryToServer(_ userId: String) throws    {
         // query contains u## selected from
         // after dictionary is returned
-        questionLabel.text = "\(query) updateQ"
+        questionLabel.text = "\(userId) updateQ"
         answerLabel.text = "updateA"
+        
+        questionLabel.lineBreakMode = .byWordWrapping
+        questionLabel.numberOfLines = 0
+        
+        enum APIError: Error {
+            case invalidHTTPStatus
+            case emptyUserID
+        }
+        
+        if userId.isEmpty{
+            throw (APIError.emptyUserID)
+        }
+        
+        let myDict = [String: String]()
+        var userResponse = UserResponse(post:myDict)
+
+        //endpoint = endpoint + userId
+        let localEndpoint = baseEndpoint + userId
+        
+        print("start execute URL: " + localEndpoint)
+        
+        let url = URL(string: localEndpoint)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+    
+        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+            guard let data = data else { return }
+            _ = String(data: data, encoding: .utf8)!
+             do{
+                if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
+                    print ("httpResponse.statusCode: \(httpResponse.statusCode)")
+                    throw (APIError.invalidHTTPStatus)
+                }
+                
+                userResponse = try JSONDecoder().decode(UserResponse.self,from:data)
+                print("question label: " , userResponse.post.keys.first ?? "")
+                print("answer label: " , userResponse.post.values.first ?? "")
+                DispatchQueue.main.async {
+                    for question in userResponse.post.keys{
+                       "\(userId) Answer: " + (userResponse.post[question] ?? "")
+                    }
+                   
+                }
+                print("http response:  \(String(describing: response))" )
+                print ("user response: " , userResponse)
+                 
+            }
+            catch {
+                print("JSONSerialization error:", error)
+            }
+            
+        }
+    
+        print ("end execute URL")
+
+        task.resume()
+
     }
     
     
@@ -215,4 +284,3 @@ extension ViewController  {
         return true
     }
 }
-
