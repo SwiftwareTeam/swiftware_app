@@ -10,7 +10,7 @@ import Foundation
 struct SurveyResponse: Codable {
     var id = UUID()
     var uid: String
-    var surveyID: String
+    var surveyID: Int
     var responseType: String
-    var responses: [String : String] // QuestionID: AnswerID (Must be looked up from Survey Object)
+    var responses: [Int : Int] // QuestionID: AnswerID (Must be looked up from Survey Object)
 }

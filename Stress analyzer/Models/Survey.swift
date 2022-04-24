@@ -8,20 +8,21 @@
 import Foundation
 
 struct Question: Codable {
-    var id: String
+    var id: Int
     var shortWording: String
     var fullWording: String
 }
 
 struct Answer: Codable {
-    var id: String
+    var id: Int
     var label: String
     var value: Int
 }
 
 struct Survey: Codable {
+    var id: Int
     var name: String
     var group: String
-    var questions: [String : Question] // QuestionID: Question
-    var answers: [String : Answer] // AnswerID: Answer
+    var questions: [Int : Question] // QuestionID: Question
+    var answers: [Int : Answer] // AnswerID: Answer
 }
