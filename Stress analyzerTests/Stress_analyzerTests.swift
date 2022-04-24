@@ -71,4 +71,31 @@ class Stress_analyzerTests: XCTestCase {
 //        surveys = try decoder.decode([Survey].self, from: data)
 //    }
 
+//    func testGetNulSurveyResponse() async throws {
+//        let url = URL(string: "http://127.0.0.1:8080/Test")! // Endpoint deleted, just sends single SurveyResponse with a nil
+//        let request = URLRequest(url: url)
+//
+//        let (data, response) = try await URLSession.shared.data(for: request)
+//
+//        XCTAssertNotNil(response)
+//        XCTAssertNotNil(data)
+//
+//        let httpResponse = response as? HTTPURLResponse
+//        let surveyResponse: SurveyResponse?
+//
+//        let decoder = JSONDecoder()
+//
+//        XCTAssertEqual(httpResponse?.statusCode, 200)
+//
+//        surveyResponse = try decoder.decode(SurveyResponse.self, from: data)
+//
+//        let value: Int? = surveyResponse?.responses[1] ?? nil
+//
+//        if value == nil {
+//            print("Value is nil")
+//        } else {
+//            print("Value is not nil")
+//        }
+//    }
+
 }

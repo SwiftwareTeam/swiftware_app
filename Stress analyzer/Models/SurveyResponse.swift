@@ -12,5 +12,5 @@ struct SurveyResponse: Codable {
     var uid: String
     var surveyID: Int
     var responseType: String
-    var responses: [Int : Int] // QuestionID: AnswerID (Must be looked up from Survey Object)
+    var responses: [Int : Int?] // QuestionID: AnswerID (Must be looked up from Survey Object)
 }
