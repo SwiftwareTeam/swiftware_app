@@ -50,11 +50,9 @@ class Stress_analyzerTests: XCTestCase {
 
         XCTAssertEqual(surveyResponse?.uid, "u000")
         XCTAssertEqual(surveyResponse?.responseType, "pre")
-
-        XCTAssertEqual(surveyResponse?.questions.count, 3)
-        XCTAssertEqual(surveyResponse?.questions[0], "question 1")
-        XCTAssertEqual(surveyResponse?.questions[1], "question 2")
-        XCTAssertEqual(surveyResponse?.questions[2], "question 3")
+        XCTAssertEqual(surveyResponse?.surveyID, "S1")
+        XCTAssertEqual(surveyResponse?.responses["Q1-1"], "Q1-1-1")
+        XCTAssertEqual(surveyResponse?.responses["Q1-2"], "Q1-2-3")
 
     }
 
