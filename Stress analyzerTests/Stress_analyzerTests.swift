@@ -30,4 +30,57 @@ class Stress_analyzerTests: XCTestCase {
         }
     }
 
+    func testNewGetResponse() async throws {
+        let url = URL(string: "http://127.0.0.1:8080/test")!
+        let request = URLRequest(url: url)
+
+        let (data, response) = try await URLSession.shared.data(for: request)
+
+        XCTAssertNotNil(response)
+        XCTAssertNotNil(data)
+
+        let httpResponse = response as? HTTPURLResponse
+        let surveyResponse: SurveyResponse?
+
+        let decoder = JSONDecoder()
+
+        XCTAssertEqual(httpResponse?.statusCode, 200)
+
+        surveyResponse = try decoder.decode(SurveyResponse.self, from: data)
+
+        XCTAssertEqual(surveyResponse?.uid, "u000")
+        XCTAssertEqual(surveyResponse?.responseType, "pre")
+
+        XCTAssertEqual(surveyResponse?.questions.count, 3)
+        XCTAssertEqual(surveyResponse?.questions[0], "question 1")
+        XCTAssertEqual(surveyResponse?.questions[1], "question 2")
+        XCTAssertEqual(surveyResponse?.questions[2], "question 3")
+
+    }
+
+    func testGetSurvey() async throws {
+        let url = URL(string: "http://127.0.0.1:8080/test2")!
+        let request = URLRequest(url: url)
+
+        let (data, response) = try await URLSession.shared.data(for: request)
+
+        XCTAssertNotNil(response)
+        XCTAssertNotNil(data)
+
+        let httpResponse = response as? HTTPURLResponse
+        let survey: Survey?
+
+        let decoder = JSONDecoder()
+
+        XCTAssertEqual(httpResponse?.statusCode, 200)
+
+        survey = try decoder.decode(Survey.self, from: data)
+
+        XCTAssertEqual(survey?.name, "Big Five")
+        XCTAssertEqual(survey?.group, "I see myself as")
+
+        XCTAssertEqual(survey?.questions["Q1-1"]?.shortWording, "Talkative")
+        XCTAssertEqual(survey?.questions["Q1-2"]?.fullWording, "I see myself as someone who tends to find fault with others")
+    }
+
 }

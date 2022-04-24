@@ -16,6 +16,12 @@
 		AC56D8482806AC2B00B558A6 /* Stress_analyzerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC56D8472806AC2B00B558A6 /* Stress_analyzerTests.swift */; };
 		AC56D8532806AC2C00B558A6 /* Stress_analyzerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC56D8522806AC2C00B558A6 /* Stress_analyzerUITests.swift */; };
 		AC56D864280736C400B558A6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC56D863280736C300B558A6 /* Model.swift */; };
+		D2003B792814D2E800BE668A /* SurveyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2003B782814D2E800BE668A /* SurveyResponse.swift */; };
+		D2003B7A2814D2E800BE668A /* SurveyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2003B782814D2E800BE668A /* SurveyResponse.swift */; };
+		D2003B7B2814D2E800BE668A /* SurveyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2003B782814D2E800BE668A /* SurveyResponse.swift */; };
+		D2DB51F82815064B0009BD67 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB51F72815064B0009BD67 /* Survey.swift */; };
+		D2DB51F92815064B0009BD67 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB51F72815064B0009BD67 /* Survey.swift */; };
+		D2DB51FA2815064B0009BD67 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB51F72815064B0009BD67 /* Survey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +57,8 @@
 		AC56D8522806AC2C00B558A6 /* Stress_analyzerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stress_analyzerUITests.swift; sourceTree = "<group>"; };
 		AC56D8542806AC2C00B558A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC56D863280736C300B558A6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		D2003B782814D2E800BE668A /* SurveyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyResponse.swift; sourceTree = "<group>"; };
+		D2DB51F72815064B0009BD67 /* Survey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +109,7 @@
 		AC56D82F2806AC2900B558A6 /* Stress analyzer */ = {
 			isa = PBXGroup;
 			children = (
+				D2003B772814D2D500BE668A /* Models */,
 				AC56D8302806AC2900B558A6 /* AppDelegate.swift */,
 				AC56D8322806AC2900B558A6 /* SceneDelegate.swift */,
 				AC56D8342806AC2900B558A6 /* ViewController.swift */,
@@ -129,6 +138,15 @@
 				AC56D8542806AC2C00B558A6 /* Info.plist */,
 			);
 			path = "Stress analyzerUITests";
+			sourceTree = "<group>";
+		};
+		D2003B772814D2D500BE668A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D2003B782814D2E800BE668A /* SurveyResponse.swift */,
+				D2DB51F72815064B0009BD67 /* Survey.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +282,8 @@
 				AC56D8352806AC2900B558A6 /* ViewController.swift in Sources */,
 				AC56D8312806AC2900B558A6 /* AppDelegate.swift in Sources */,
 				AC56D8332806AC2900B558A6 /* SceneDelegate.swift in Sources */,
+				D2DB51F82815064B0009BD67 /* Survey.swift in Sources */,
+				D2003B792814D2E800BE668A /* SurveyResponse.swift in Sources */,
 				AC56D864280736C400B558A6 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +292,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2DB51F92815064B0009BD67 /* Survey.swift in Sources */,
+				D2003B7A2814D2E800BE668A /* SurveyResponse.swift in Sources */,
 				AC56D8482806AC2B00B558A6 /* Stress_analyzerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +302,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2DB51FA2815064B0009BD67 /* Survey.swift in Sources */,
+				D2003B7B2814D2E800BE668A /* SurveyResponse.swift in Sources */,
 				AC56D8532806AC2C00B558A6 /* Stress_analyzerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,6 +467,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YSHDDUKZCZ;
 				INFOPLIST_FILE = "Stress analyzer/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -462,6 +487,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YSHDDUKZCZ;
 				INFOPLIST_FILE = "Stress analyzer/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -481,7 +507,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YSHDDUKZCZ;
 				INFOPLIST_FILE = "Stress analyzerTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -503,7 +529,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YSHDDUKZCZ;
 				INFOPLIST_FILE = "Stress analyzerTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
