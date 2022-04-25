@@ -22,6 +22,60 @@ class ViewController: UIViewController, UISearchResultsUpdating, UISearchControl
         print(searched!)
     }
     
+    @IBOutlet weak var studentLabel: UILabel!
+    @IBOutlet weak var questionDisplayLabel: UILabel!
+    @IBOutlet weak var responseLabel: UILabel!
+    
+    @IBAction func prevQButton(_ sender: Any) {
+    }
+    @IBAction func nextQButton(_ sender: Any) {
+    }
+    @IBAction func insertButton(_ sender: Any) {
+    }
+    @IBAction func deleteButton(_ sender: Any) {
+    }
+
+/*
+    @IBAction func updateButton(_ sender: Any) {
+        var body: some View {
+            Menu("Update") {
+                Button("Disagree Strongly", action: disagreeStrongly)
+                Button("Disagree a Little", action: disagreeLittle)
+                Button("Neither Agree or Disagree", action: neitherDisagreeAgree)
+                Button("Agree a Little", action: agreeLittle)
+                Button("Disagree Strongly", action: agreeStrongly)
+            } primaryAction: {
+                  justDoIt()
+            }
+        
+        func disagreeStrongly() { }
+        func disagreeLittle() { }
+        func neitherDisagreeAgree() { }
+        func agreeLittle() { }
+        func agreeStrongly() { }
+    }
+
+
+    struct ContentView: View {
+        var body: some View {
+            Menu("Options") {
+                Button("Disagree Strongly", action: disagreeStrongly)
+                Button("Disagree a Little", action: disagreeLittle)
+                Button("Neither Agree or Disagree", action: neitherDisagreeAgree)
+                Button("Agree a Little", action: agreeLittle)
+                Button("Disagree Strongly", action: agreeStrongly)
+            } primaryAction: {
+                  justDoIt()
+            }
+        }
+
+        func disagreeStrongly() { }
+        func disagreeLittle() { }
+        func neitherDisagreeAgree() { }
+        func agreeLittle() { }
+        func agreeStrongly() { }
+    }
+*/
     
     
     //let student = studentStress()
