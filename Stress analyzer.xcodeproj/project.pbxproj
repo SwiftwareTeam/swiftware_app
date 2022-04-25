@@ -3,19 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		AC56D8312806AC2900B558A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC56D8302806AC2900B558A6 /* AppDelegate.swift */; };
 		AC56D8332806AC2900B558A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC56D8322806AC2900B558A6 /* SceneDelegate.swift */; };
 		AC56D8352806AC2900B558A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC56D8342806AC2900B558A6 /* ViewController.swift */; };
-		AC56D8382806AC2900B558A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC56D8362806AC2900B558A6 /* Main.storyboard */; };
 		AC56D83A2806AC2B00B558A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC56D8392806AC2B00B558A6 /* Assets.xcassets */; };
 		AC56D83D2806AC2B00B558A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC56D83B2806AC2B00B558A6 /* LaunchScreen.storyboard */; };
 		AC56D8482806AC2B00B558A6 /* Stress_analyzerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC56D8472806AC2B00B558A6 /* Stress_analyzerTests.swift */; };
 		AC56D8532806AC2C00B558A6 /* Stress_analyzerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC56D8522806AC2C00B558A6 /* Stress_analyzerUITests.swift */; };
 		AC56D864280736C400B558A6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC56D863280736C300B558A6 /* Model.swift */; };
+		E36C658728164834009DBFE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E36C658528164834009DBFE7 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +40,6 @@
 		AC56D8302806AC2900B558A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC56D8322806AC2900B558A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AC56D8342806AC2900B558A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AC56D8372806AC2900B558A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC56D8392806AC2B00B558A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC56D83C2806AC2B00B558A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC56D83E2806AC2B00B558A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +50,7 @@
 		AC56D8522806AC2C00B558A6 /* Stress_analyzerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stress_analyzerUITests.swift; sourceTree = "<group>"; };
 		AC56D8542806AC2C00B558A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC56D863280736C300B558A6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		E36C658628164834009DBFE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +78,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E9D9063D0F4FC13EC5887AB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		AC56D8242806AC2900B558A6 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +92,8 @@
 				AC56D8462806AC2B00B558A6 /* Stress analyzerTests */,
 				AC56D8512806AC2C00B558A6 /* Stress analyzerUITests */,
 				AC56D82E2806AC2900B558A6 /* Products */,
+				5E9D9063D0F4FC13EC5887AB /* Pods */,
+				E39CD8D72816187A00A8D668 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,7 +113,7 @@
 				AC56D8302806AC2900B558A6 /* AppDelegate.swift */,
 				AC56D8322806AC2900B558A6 /* SceneDelegate.swift */,
 				AC56D8342806AC2900B558A6 /* ViewController.swift */,
-				AC56D8362806AC2900B558A6 /* Main.storyboard */,
+				E36C658528164834009DBFE7 /* Main.storyboard */,
 				AC56D863280736C300B558A6 /* Model.swift */,
 				AC56D8392806AC2B00B558A6 /* Assets.xcassets */,
 				AC56D83B2806AC2B00B558A6 /* LaunchScreen.storyboard */,
@@ -129,6 +138,13 @@
 				AC56D8542806AC2C00B558A6 /* Info.plist */,
 			);
 			path = "Stress analyzerUITests";
+			sourceTree = "<group>";
+		};
+		E39CD8D72816187A00A8D668 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,9 +250,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E36C658728164834009DBFE7 /* Main.storyboard in Resources */,
 				AC56D83D2806AC2B00B558A6 /* LaunchScreen.storyboard in Resources */,
 				AC56D83A2806AC2B00B558A6 /* Assets.xcassets in Resources */,
-				AC56D8382806AC2900B558A6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,14 +316,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		AC56D8362806AC2900B558A6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AC56D8372806AC2900B558A6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AC56D83B2806AC2B00B558A6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -316,12 +324,21 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		E36C658528164834009DBFE7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E36C658628164834009DBFE7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		AC56D8552806AC2C00B558A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -383,6 +400,7 @@
 		AC56D8562806AC2C00B558A6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -438,15 +456,19 @@
 		AC56D8582806AC2C00B558A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YSHDDUKZCZ;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Stress analyzer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "rookieware.Stress-analyzer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -457,15 +479,19 @@
 		AC56D8592806AC2C00B558A6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YSHDDUKZCZ;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(inherited)";
 				INFOPLIST_FILE = "Stress analyzer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "rookieware.Stress-analyzer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -476,7 +502,7 @@
 		AC56D85B2806AC2C00B558A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YSHDDUKZCZ;
@@ -498,7 +524,7 @@
 		AC56D85C2806AC2C00B558A6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YSHDDUKZCZ;
@@ -520,7 +546,7 @@
 		AC56D85E2806AC2C00B558A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YSHDDUKZCZ;
 				INFOPLIST_FILE = "Stress analyzerUITests/Info.plist";
@@ -540,7 +566,7 @@
 		AC56D85F2806AC2C00B558A6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YSHDDUKZCZ;
 				INFOPLIST_FILE = "Stress analyzerUITests/Info.plist";
