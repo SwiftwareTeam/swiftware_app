@@ -14,6 +14,10 @@ class ViewController: UIViewController, UISearchResultsUpdating, UISearchControl
     var searched: String?
     let searchControl = UISearchController(searchResultsController: resultView())
     
+    private var sN: String = "" //studnet number
+    private var sQ: String = "" //student question
+    private var sR: String = "" //student response
+    
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchControl.searchBar.text else {
             return
@@ -22,60 +26,8 @@ class ViewController: UIViewController, UISearchResultsUpdating, UISearchControl
         print(searched!)
     }
     
-    @IBOutlet weak var studentLabel: UILabel!
-    @IBOutlet weak var questionDisplayLabel: UILabel!
-    @IBOutlet weak var responseLabel: UILabel!
-    
-    @IBAction func prevQButton(_ sender: Any) {
-    }
-    @IBAction func nextQButton(_ sender: Any) {
-    }
-    @IBAction func insertButton(_ sender: Any) {
-    }
-    @IBAction func deleteButton(_ sender: Any) {
-    }
-
-/*
-    @IBAction func updateButton(_ sender: Any) {
-        var body: some View {
-            Menu("Update") {
-                Button("Disagree Strongly", action: disagreeStrongly)
-                Button("Disagree a Little", action: disagreeLittle)
-                Button("Neither Agree or Disagree", action: neitherDisagreeAgree)
-                Button("Agree a Little", action: agreeLittle)
-                Button("Disagree Strongly", action: agreeStrongly)
-            } primaryAction: {
-                  justDoIt()
-            }
-        
-        func disagreeStrongly() { }
-        func disagreeLittle() { }
-        func neitherDisagreeAgree() { }
-        func agreeLittle() { }
-        func agreeStrongly() { }
-    }
 
 
-    struct ContentView: View {
-        var body: some View {
-            Menu("Options") {
-                Button("Disagree Strongly", action: disagreeStrongly)
-                Button("Disagree a Little", action: disagreeLittle)
-                Button("Neither Agree or Disagree", action: neitherDisagreeAgree)
-                Button("Agree a Little", action: agreeLittle)
-                Button("Disagree Strongly", action: agreeStrongly)
-            } primaryAction: {
-                  justDoIt()
-            }
-        }
-
-        func disagreeStrongly() { }
-        func disagreeLittle() { }
-        func neitherDisagreeAgree() { }
-        func agreeLittle() { }
-        func agreeStrongly() { }
-    }
-*/
     
     
     //let student = studentStress()
@@ -148,6 +100,17 @@ class ViewController: UIViewController, UISearchResultsUpdating, UISearchControl
             print ("error has occurred while sending query to server in table view")
         }
         tableView.isHidden = true
+        /* test case
+        sN = "U00"
+        sQ = "I see myself as a kind person"
+        sR = "Agree a Little"
+         */
+        let vc = storyboard?.instantiateViewController(identifier: "secondVC") as! SecondViewController
+        sN = Filtered[indexPath.row]
+        vc.studentNum = sN
+        vc.surveyQuestion = sQ
+        vc.surveyResponse = sR
+        present(vc, animated: true)
         //tableView.removeFromSuperview()
     }
     
@@ -187,7 +150,7 @@ class ViewController: UIViewController, UISearchResultsUpdating, UISearchControl
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
     
-        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+        let task = URLSession.shared.dataTask(with: url) { [self](data, response, error) in
             guard let data = data else { return }
             _ = String(data: data, encoding: .utf8)!
              do{
@@ -197,6 +160,8 @@ class ViewController: UIViewController, UISearchResultsUpdating, UISearchControl
                 }
                 
                 userResponse = try JSONDecoder().decode(UserResponse.self,from:data)
+                 self.sQ = userResponse.post.keys.first ?? ""
+                 self.sR = userResponse.post.values.first ?? ""
                 print("question label: " , userResponse.post.keys.first ?? "")
                 print("answer label: " , userResponse.post.values.first ?? "")
                 DispatchQueue.main.async {
@@ -207,7 +172,6 @@ class ViewController: UIViewController, UISearchResultsUpdating, UISearchControl
                 }
                 print("http response:  \(String(describing: response))" )
                 print ("user response: " , userResponse)
-                 
             }
             catch {
                 print("JSONSerialization error:", error)
