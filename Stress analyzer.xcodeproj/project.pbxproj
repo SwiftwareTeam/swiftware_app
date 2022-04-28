@@ -15,6 +15,12 @@
 		AC56D8482806AC2B00B558A6 /* Stress_analyzerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC56D8472806AC2B00B558A6 /* Stress_analyzerTests.swift */; };
 		AC56D8532806AC2C00B558A6 /* Stress_analyzerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC56D8522806AC2C00B558A6 /* Stress_analyzerUITests.swift */; };
 		AC56D864280736C400B558A6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC56D863280736C300B558A6 /* Model.swift */; };
+		D2F9FCC428172C25002F21A2 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9FCC228172C25002F21A2 /* Survey.swift */; };
+		D2F9FCC528172C25002F21A2 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9FCC228172C25002F21A2 /* Survey.swift */; };
+		D2F9FCC628172C25002F21A2 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9FCC228172C25002F21A2 /* Survey.swift */; };
+		D2F9FCC728172C25002F21A2 /* SurveyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9FCC328172C25002F21A2 /* SurveyResponse.swift */; };
+		D2F9FCC828172C25002F21A2 /* SurveyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9FCC328172C25002F21A2 /* SurveyResponse.swift */; };
+		D2F9FCC928172C25002F21A2 /* SurveyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9FCC328172C25002F21A2 /* SurveyResponse.swift */; };
 		E36C658728164834009DBFE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E36C658528164834009DBFE7 /* Main.storyboard */; };
 		E36C658928171F01009DBFE7 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36C658828171F01009DBFE7 /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
@@ -51,6 +57,8 @@
 		AC56D8522806AC2C00B558A6 /* Stress_analyzerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stress_analyzerUITests.swift; sourceTree = "<group>"; };
 		AC56D8542806AC2C00B558A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC56D863280736C300B558A6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		D2F9FCC228172C25002F21A2 /* Survey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
+		D2F9FCC328172C25002F21A2 /* SurveyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyResponse.swift; sourceTree = "<group>"; };
 		E36C658628164834009DBFE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E36C658828171F01009DBFE7 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,12 +120,12 @@
 		AC56D82F2806AC2900B558A6 /* Stress analyzer */ = {
 			isa = PBXGroup;
 			children = (
+				D2F9FCC128172BFB002F21A2 /* Models */,
 				AC56D8302806AC2900B558A6 /* AppDelegate.swift */,
 				AC56D8322806AC2900B558A6 /* SceneDelegate.swift */,
 				E36C658828171F01009DBFE7 /* SecondViewController.swift */,
 				AC56D8342806AC2900B558A6 /* ViewController.swift */,
 				E36C658528164834009DBFE7 /* Main.storyboard */,
-				AC56D863280736C300B558A6 /* Model.swift */,
 				AC56D8392806AC2B00B558A6 /* Assets.xcassets */,
 				AC56D83B2806AC2B00B558A6 /* LaunchScreen.storyboard */,
 				AC56D83E2806AC2B00B558A6 /* Info.plist */,
@@ -141,6 +149,16 @@
 				AC56D8542806AC2C00B558A6 /* Info.plist */,
 			);
 			path = "Stress analyzerUITests";
+			sourceTree = "<group>";
+		};
+		D2F9FCC128172BFB002F21A2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D2F9FCC228172C25002F21A2 /* Survey.swift */,
+				D2F9FCC328172C25002F21A2 /* SurveyResponse.swift */,
+				AC56D863280736C300B558A6 /* Model.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E39CD8D72816187A00A8D668 /* Recovered References */ = {
@@ -282,6 +300,8 @@
 			files = (
 				AC56D8352806AC2900B558A6 /* ViewController.swift in Sources */,
 				AC56D8312806AC2900B558A6 /* AppDelegate.swift in Sources */,
+				D2F9FCC728172C25002F21A2 /* SurveyResponse.swift in Sources */,
+				D2F9FCC428172C25002F21A2 /* Survey.swift in Sources */,
 				AC56D8332806AC2900B558A6 /* SceneDelegate.swift in Sources */,
 				E36C658928171F01009DBFE7 /* SecondViewController.swift in Sources */,
 				AC56D864280736C400B558A6 /* Model.swift in Sources */,
@@ -293,6 +313,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC56D8482806AC2B00B558A6 /* Stress_analyzerTests.swift in Sources */,
+				D2F9FCC528172C25002F21A2 /* Survey.swift in Sources */,
+				D2F9FCC828172C25002F21A2 /* SurveyResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +323,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC56D8532806AC2C00B558A6 /* Stress_analyzerUITests.swift in Sources */,
+				D2F9FCC628172C25002F21A2 /* Survey.swift in Sources */,
+				D2F9FCC928172C25002F21A2 /* SurveyResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,7 +415,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -447,7 +471,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -467,6 +491,7 @@
 				DEVELOPMENT_TEAM = YSHDDUKZCZ;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Stress analyzer/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -491,6 +516,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(inherited)";
 				INFOPLIST_FILE = "Stress analyzer/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -511,7 +537,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YSHDDUKZCZ;
 				INFOPLIST_FILE = "Stress analyzerTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -533,7 +559,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YSHDDUKZCZ;
 				INFOPLIST_FILE = "Stress analyzerTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
