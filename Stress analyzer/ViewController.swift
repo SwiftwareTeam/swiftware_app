@@ -115,75 +115,76 @@ class ViewController: UIViewController, UISearchResultsUpdating, UISearchControl
     }
     
     struct UserResponse: Codable {
-        var post: Dictionary<String,String>
+        var post: Dictionary<String,String> //[survey response] array
     }
     var baseEndpoint = "http://swiftware.tech/getResponses/"
     //added an exception domain to the link above, changed from https to http
     
     func sendQueryToServer(_ userId: String) throws    {
-        // query contains u## selected from
-        // after dictionary is returned
-        questionLabel.text = "\(userId) updateQ"
-        answerLabel.text = "updateA"
-        
-        questionLabel.lineBreakMode = .byWordWrapping
-        questionLabel.numberOfLines = 0
-        
-        enum APIError: Error {
-            case invalidHTTPStatus
-            case emptyUserID
-        }
-        
-        if userId.isEmpty{
-            throw (APIError.emptyUserID)
-        }
-        
-        let myDict = [String: String]()
-        var userResponse = UserResponse(post:myDict)
+            // query contains u## selected from
+            // after dictionary is returned
+            questionLabel.text = "\(userId) updateQ"
+            answerLabel.text = "updateA"
 
-        //endpoint = endpoint + userId
-        let localEndpoint = baseEndpoint + userId
-        
-        print("start execute URL: " + localEndpoint)
-        
-        let url = URL(string: localEndpoint)!
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-    
-        let task = URLSession.shared.dataTask(with: url) { [self](data, response, error) in
-            guard let data = data else { return }
-            _ = String(data: data, encoding: .utf8)!
-             do{
-                if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
-                    print ("httpResponse.statusCode: \(httpResponse.statusCode)")
-                    throw (APIError.invalidHTTPStatus)
-                }
-                
-                userResponse = try JSONDecoder().decode(UserResponse.self,from:data)
-                 self.sQ = userResponse.post.keys.first ?? ""
-                 self.sR = userResponse.post.values.first ?? ""
-                print("question label: " , userResponse.post.keys.first ?? "")
-                print("answer label: " , userResponse.post.values.first ?? "")
-                DispatchQueue.main.async {
-                    for question in userResponse.post.keys{
-                       "\(userId) Answer: " + (userResponse.post[question] ?? "")
+            questionLabel.lineBreakMode = .byWordWrapping
+            questionLabel.numberOfLines = 0
+
+            enum APIError: Error {
+                case invalidHTTPStatus
+                case emptyUserID
+            }
+
+            if userId.isEmpty{
+                throw (APIError.emptyUserID)
+            }
+
+            let myDict = [String: String]()
+            var userResponse = UserResponse(post:myDict)
+
+            //endpoint = endpoint + userId
+            let localEndpoint = baseEndpoint + userId
+
+            print("start execute URL: " + localEndpoint)
+
+            let url = URL(string: localEndpoint)!
+            var request = URLRequest(url: url)
+            request.httpMethod = "GET"
+
+            let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+                guard let data = data else { return }
+                _ = String(data: data, encoding: .utf8)!
+                 do{
+                    if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
+                        print ("httpResponse.statusCode: \(httpResponse.statusCode)")
+                        throw (APIError.invalidHTTPStatus)
                     }
-                   
+
+                    userResponse = try JSONDecoder().decode(UserResponse.self,from:data)
+                    print("question label: " , userResponse.post.keys.first ?? "")
+                    print("answer label: " , userResponse.post.values.first ?? "")
+                    DispatchQueue.main.async {
+                        for question in userResponse.post.keys{
+                           "\(userId) Answer: " + (userResponse.post[question] ?? "")
+                            print("\(userId) Answer: " + (userResponse.post[question] ?? ""))
+                        }
+
+                    }
+                    print("http response:  \(String(describing: response))" )
+                    print ("user response: " , userResponse)
+
                 }
-                print("http response:  \(String(describing: response))" )
-                print ("user response: " , userResponse)
+                catch {
+                    print("JSONSerialization error:", error)
+                }
+
             }
-            catch {
-                print("JSONSerialization error:", error)
-            }
-            
+
+            print ("end execute URL")
+
+            task.resume()
+
         }
-    
-        print ("end execute URL")
 
-        task.resume()
-
-    }
     
     
 //KEYBOARD STUFF:
