@@ -244,6 +244,37 @@
             </objects>
             <point key="canvasLocation" x="2011.594202898551" y="104.46428571428571"/>
         </scene>
+        <!--Bar Graph View Controller-->
+        <scene sceneID="mAU-Zs-apg">
+            <objects>
+                <viewController storyboardIdentifier="bargraph_vc" id="loO-oD-t9s" customClass="BarGraphViewController" customModule="Stress_analyzer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P6d-4j-tId">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yel-Ar-n6h">
+                                <rect key="frame" x="88" y="89" width="238" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="De8-j1-u0k"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yel-Ar-n6h" firstAttribute="leading" secondItem="De8-j1-u0k" secondAttribute="leading" constant="88" id="294-4u-u2z"/>
+                            <constraint firstItem="yel-Ar-n6h" firstAttribute="top" secondItem="De8-j1-u0k" secondAttribute="top" constant="45" id="9bG-uE-bVf"/>
+                            <constraint firstItem="De8-j1-u0k" firstAttribute="trailing" secondItem="yel-Ar-n6h" secondAttribute="trailing" constant="88" id="KBE-0C-0iL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="questionLabel" destination="yel-Ar-n6h" id="Edt-Gz-URP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7zl-Nf-PFU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2992.753623188406" y="150.66964285714286"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="jB3-ut-tHc">
             <objects>

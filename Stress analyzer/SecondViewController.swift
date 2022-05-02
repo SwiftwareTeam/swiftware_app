@@ -146,7 +146,7 @@ class SecondViewController: UIViewController {
         studentLabel.text = studentNum
         questionDisplayLabel.text = surveyQuestion
         responseLabel.text = surveyResponse
-        */
+        
         let gaugeController = UIHostingController(rootView: ContentView())
         gaugeController.view.translatesAutoresizingMaskIntoConstraints = false
         self.addChild(gaugeController)
@@ -169,6 +169,7 @@ class SecondViewController: UIViewController {
         if surveyResponse != nil {
             responseLabel.text = surveyResponse
         }
+         */
         // Do any additional setup after loading the view.
     }
     
