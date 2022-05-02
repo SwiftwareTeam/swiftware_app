@@ -107,7 +107,7 @@ class ViewController: UIViewController, UISearchResultsUpdating, UISearchControl
          */
         let vc = storyboard?.instantiateViewController(identifier: "secondVC") as! SecondViewController
         sN = Filtered[indexPath.row]
-        vc.studentNum = sN
+        vc.studentNum = sN // user ID
         vc.surveyQuestion = sQ
         vc.surveyResponse = sR
         present(vc, animated: true)
