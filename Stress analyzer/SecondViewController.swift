@@ -99,6 +99,26 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
         retrieveUserData()
         loadText(index: currentIndex)
+
+    }
+    func loadText(index: Int) {
+        
+        if surveyResponse.uid != nil {
+            studentLabel.text = surveyResponse.uid
+        }
+        
+        questionDisplayLabel.text = survey.questions[index]?.fullWording
+        
+        if surveyResponse != nil {
+            responseLabel.text = survey.answers[index]?.label
+            responseLabel.text = survey.answers[(surveyResponse.responses[index] ?? 3) ?? 3]?.label
+        }
+    }
+    
+}
+
+
+
     }
     func loadText(index: Int) {
         
@@ -153,6 +173,7 @@ class SecondViewController: UIViewController {
     }
     
 }
+
 
 
 //    @IBAction func updateButton(_ sender: Any) {

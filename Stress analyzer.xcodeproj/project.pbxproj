@@ -22,6 +22,11 @@
 		D21C2B43281D3BD3007981ED /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21C2B41281D3BD3007981ED /* ChartData.swift */; };
 		D21C2B44281D3BD3007981ED /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21C2B41281D3BD3007981ED /* ChartData.swift */; };
 
+
+		ACC7B75C281B98E400ACC44D /* sampledata.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC7B75B281B98E400ACC44D /* sampledata.swift */; };
+
+
+
 		D2F9FCC428172C25002F21A2 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9FCC228172C25002F21A2 /* Survey.swift */; };
 		D2F9FCC528172C25002F21A2 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9FCC228172C25002F21A2 /* Survey.swift */; };
 		D2F9FCC628172C25002F21A2 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9FCC228172C25002F21A2 /* Survey.swift */; };
@@ -66,9 +71,16 @@
 		AC56D8542806AC2C00B558A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC56D863280736C300B558A6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 
+
+		D21C2B41281D3BD3007981ED /* ChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
+
+		ACC7B75B281B98E400ACC44D /* sampledata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = sampledata.swift; path = Models/sampledata.swift; sourceTree = "<group>"; };
+
+
 		ACC7B75B281B98E400ACC44D /* sampledata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = sampledata.swift; path = Models/sampledata.swift; sourceTree = "<group>"; };
 
 		D21C2B41281D3BD3007981ED /* ChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
+
 
 		D2F9FCC228172C25002F21A2 /* Survey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
 		D2F9FCC328172C25002F21A2 /* SurveyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyResponse.swift; sourceTree = "<group>"; };
