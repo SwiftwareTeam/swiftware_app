@@ -1,13 +1,13 @@
 //
-//  Stress_analyzerUITests.swift
-//  Stress analyzerUITests
+//  Stress_AnalyzerUITests.swift
+//  Stress AnalyzerUITests
 //
-//  Created by Adrian on 4/12/22.
+//  Created by Shawn Long on 5/4/22.
 //
 
 import XCTest
 
-class Stress_analyzerUITests: XCTestCase {
+class Stress_AnalyzerUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -27,12 +27,11 @@ class Stress_analyzerUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
-        // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
     func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
+        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
             // This measures how long it takes to launch your application.
             measure(metrics: [XCTApplicationLaunchMetric()]) {
                 XCUIApplication().launch()
