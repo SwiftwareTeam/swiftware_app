@@ -12,6 +12,10 @@ struct ContentView: View {
     @EnvironmentObject var surveyResponseViewModel: SurveyResponseViewModel
     @EnvironmentObject var anlayticsViewModel: AnalyticsViewModel
     
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor(#colorLiteral(red: 0.5843137255, green: 0.5176470588, blue: 1, alpha: 1))
+    }
+    
     var body: some View {
         TabView {
             UserSearchView()
@@ -24,7 +28,7 @@ struct ContentView: View {
                     Image(systemName: "person.3.fill")
                     Text("Group Statistics")
                 }
-        }
+        }.accentColor(.white)
     }
 }
 
