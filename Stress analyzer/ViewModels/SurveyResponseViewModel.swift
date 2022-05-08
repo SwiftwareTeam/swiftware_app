@@ -14,12 +14,14 @@ import Foundation
 final class SurveyResponseViewModel: ObservableObject {
     @Published var surveyResponses : [UUID : SurveyResponse]
     @Published var users: [String]
+    @Published var surveyResp: [SurveyResponse]
     let baseURL = "http://swiftware.tech"
 
     init() {
         // New class properties should be initialized in here
         self.users = [String]()
         self.surveyResponses = [UUID : SurveyResponse]()
+        self.surveyResp = [SurveyResponse]()
     }
 
     /**
@@ -44,14 +46,32 @@ final class SurveyResponseViewModel: ObservableObject {
     }
 
     // TODO: Implement Function
-    // ADjust function arguments as needed
+    // Adjust function arguments as needed
     func loadResponses(uid: String) async {
+        
+        print ("inside func")
+        let url = URL(string: baseURL + "/getResponses/" + uid)!
+        print ("url: " , url)
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+
+        do {
+            print ("inside do task")
+            let (data, _) = try await URLSession.shared.data(for: request)
+            surveyResp = try JSONDecoder().decode([SurveyResponse].self, from: data)
+        
+            print(surveyResp)
+        } catch {
+            print("unable to retrieve users from server. Reason: \(error)")
+        }
     }
+    
 
     // TODO: Implement Function
     // Adjust function arguments as needed
     func createResponse(id: UUID) async {
-
+        
     }
 
     // TODO: Implement Function
