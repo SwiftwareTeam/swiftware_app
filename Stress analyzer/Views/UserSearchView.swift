@@ -11,16 +11,28 @@ struct UserSearchView: View {
     @EnvironmentObject var surveyResponseData: SurveyResponseViewModel
 
     @State private var searchText = ""
+    
+    init() {
+        UITableView.appearance().backgroundColor = UIColor(#colorLiteral(red: 0.5843137255, green: 0.5176470588, blue: 1, alpha: 1))
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = UIColor.white
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = UIColor.black
+    }
 
     var body: some View {
         NavigationView {
             List {
                 ForEach(searchResults, id: \.self) { user in
-                    NavigationLink(user, destination: Text(user))
+                    HStack {
+                        NavigationLink(user, destination: Text(user))
+                        Spacer()
+                        Image(systemName: "person.crop.circle")
+                    }
                 }
             }
             .navigationTitle("Users")
             .searchable(text: $searchText)
+            
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .task {
@@ -43,3 +55,5 @@ struct UserSearch_Previews: PreviewProvider {
             .environmentObject(SurveyResponseViewModel())
     }
 }
+
+
