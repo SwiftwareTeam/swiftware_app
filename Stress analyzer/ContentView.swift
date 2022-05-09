@@ -13,7 +13,7 @@ struct ContentView: View {
     @EnvironmentObject var anlayticsViewModel: AnalyticsViewModel
     
     init() {
-        UITabBar.appearance().backgroundColor = UIColor(#colorLiteral(red: 0.5843137255, green: 0.5176470588, blue: 1, alpha: 1))
+        UITabBar.appearance().backgroundColor = UIColor(red: 0.5843137255, green: 0.5176470588, blue: 1.0, alpha: 1.0)
     }
     
     var body: some View {
@@ -28,6 +28,12 @@ struct ContentView: View {
                     Image(systemName: "person.3.fill")
                     Text("Group Statistics")
                 }
+            PersonalityView()
+                .tabItem {
+                    Image(systemName: "chart.pie.fill")
+                    Text("Personality Results")
+                }
+
         }.accentColor(.white)
     }
 }

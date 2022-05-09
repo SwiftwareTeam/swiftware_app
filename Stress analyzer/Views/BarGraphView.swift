@@ -25,7 +25,7 @@ struct BarGraphView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color(#colorLiteral(red: 0.5843137255, green: 0.5176470588, blue: 1, alpha: 1)).edgesIgnoringSafeArea(.all)
+                Color(red: 0.5843137255, green: 0.5176470588, blue: 1).edgesIgnoringSafeArea(.all)
                 VStack {
                     Text("Question")
                         .font(.system(size: 20))
@@ -70,7 +70,7 @@ struct BarView: View {
         VStack {
             ZStack (alignment: .bottom){
                 Capsule().frame(width: 30, height: 200)
-                    .foregroundColor(Color(#colorLiteral(red: 0.421328014, green: 0.3741274484, blue: 0.7422206918, alpha: 1)))
+                    .foregroundColor(Color(red: 0.421328014, green: 0.3741274484, blue: 0.7422206918))
                 Capsule().frame(width: 30, height: value)
                     .foregroundColor(.white)
             }
