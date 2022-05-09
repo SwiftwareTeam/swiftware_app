@@ -12,16 +12,14 @@ import Foundation
  */
 @MainActor
 final class SurveyResponseViewModel: ObservableObject {
-    @Published var surveyResponses : [UUID : SurveyResponse]
     @Published var users: [String]
-    @Published var surveyResp: [SurveyResponse]
+    @Published var surveyResponses: [SurveyResponse] //holds all of the survey responses
     let baseURL = "http://swiftware.tech"
 
     init() {
         // New class properties should be initialized in here
         self.users = [String]()
-        self.surveyResponses = [UUID : SurveyResponse]()
-        self.surveyResp = [SurveyResponse]()
+        self.surveyResponses = [SurveyResponse]()
     }
 
     /**
@@ -45,8 +43,6 @@ final class SurveyResponseViewModel: ObservableObject {
         }
     }
 
-    // TODO: Implement Function
-    // Adjust function arguments as needed
     func loadResponses(uid: String) async {
         
         print ("inside func")
@@ -59,9 +55,9 @@ final class SurveyResponseViewModel: ObservableObject {
         do {
             print ("inside do task")
             let (data, _) = try await URLSession.shared.data(for: request)
-            surveyResp = try JSONDecoder().decode([SurveyResponse].self, from: data)
+            surveyResponses = try JSONDecoder().decode([SurveyResponse].self, from: data)
         
-            print(surveyResp)
+            //print(surveyResp)
         } catch {
             print("unable to retrieve users from server. Reason: \(error)")
         }

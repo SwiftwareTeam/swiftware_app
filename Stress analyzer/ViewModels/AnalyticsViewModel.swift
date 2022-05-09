@@ -13,21 +13,29 @@ final class AnalyticsViewModel: ObservableObject {
     /// of surveyID, and values of [ChartData] which
     /// represent the list of ChartData objects for
     /// each question of the survey.
-    @Published var ResponseRatesBySurvey : [Int : [ChartData]]
+    @Published var ResponseRatesBySurvey : [ChartData] //holds all the respose rates for each question. can be accessed by ResponseratesBySurvey[surveyID]
+    let baseURL = "http://swiftware.tech"
 
     init() {
         // New class properties should be initialized in here
-        self.ResponseRatesBySurvey = [Int : [ChartData]]()
+        self.ResponseRatesBySurvey = [ChartData]()
     }
 
-    // TODO: Implement Function
-    /// Returned Data should be saved into ResponseRatesBySurvey
-    /// Dictionary. Responses from the server come back as a list
-    /// of ChartData objects, one ChartData instance per question
-    ///  on the server. So if the returned ChartData items from
-    ///  the server for surveyID: 1 is `chartDataList`, then it
-    ///  can be saved using `ResposneRatesBySurvey[1] = chartDataList`
     func getAvgResponseRate(surveyID : Int) async {
+        let url = URL(string: baseURL + "/avgResponseRate/" + String(surveyID))!
+        print ("url: " , url)
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
 
+        do {
+            print ("inside do task")
+            let (data, _) = try await URLSession.shared.data(for: request)
+            ResponseRatesBySurvey = try JSONDecoder().decode([ChartData].self, from: data)
+        
+            //print(ResponseRatesBySurvey[surveyID])
+            
+        } catch {
+            print("unable to retrieve average response rates. Reason: \(error)")
+        }
     }
 }
