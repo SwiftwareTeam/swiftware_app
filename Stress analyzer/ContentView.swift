@@ -23,7 +23,7 @@ struct ContentView: View {
                     Image(systemName: "person.fill")
                     Text("Individual Statistics")
                 }
-            Text("Group Stats Go Here")
+            BarGraphView()
                 .tabItem {
                     Image(systemName: "person.3.fill")
                     Text("Group Statistics")
