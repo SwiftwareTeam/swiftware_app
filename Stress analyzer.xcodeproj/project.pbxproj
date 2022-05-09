@@ -38,6 +38,9 @@
 		E33CA61628279D7B006DA080 /* BarGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33CA61528279D7B006DA080 /* BarGraphView.swift */; };
 		E33CA61728279D7B006DA080 /* BarGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33CA61528279D7B006DA080 /* BarGraphView.swift */; };
 		E33CA61828279D7B006DA080 /* BarGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33CA61528279D7B006DA080 /* BarGraphView.swift */; };
+		E3D01FBB2829041D00B3C92B /* GaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D01FBA2829041D00B3C92B /* GaugeView.swift */; };
+		E3D01FBC2829041D00B3C92B /* GaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D01FBA2829041D00B3C92B /* GaugeView.swift */; };
+		E3D01FBD2829041D00B3C92B /* GaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D01FBA2829041D00B3C92B /* GaugeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +80,7 @@
 		D2839AAB28238A550007BABB /* Stress-Analyzer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Stress-Analyzer-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D2F340442825721700DB74FB /* AnalyticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewModel.swift; sourceTree = "<group>"; };
 		E33CA61528279D7B006DA080 /* BarGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BarGraphView.swift; path = "Stress analyzer/Views/BarGraphView.swift"; sourceTree = SOURCE_ROOT; };
+		E3D01FBA2829041D00B3C92B /* GaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GaugeView.swift; path = "Stress analyzer/Views/GaugeView.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +173,7 @@
 			children = (
 				D2839A8B28236F2E0007BABB /* UserSearchView.swift */,
 				E33CA61528279D7B006DA080 /* BarGraphView.swift */,
+				E3D01FBA2829041D00B3C92B /* GaugeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -325,6 +330,7 @@
 			files = (
 				D2839A9F282375A80007BABB /* SurveyViewModel.swift in Sources */,
 				D2839A95282374F00007BABB /* SurveyResponse.swift in Sources */,
+				E3D01FBB2829041D00B3C92B /* GaugeView.swift in Sources */,
 				D2839AA328237C390007BABB /* SurveyResponseViewModel.swift in Sources */,
 				D2839A98282374F00007BABB /* ChartData.swift in Sources */,
 				E33CA61628279D7B006DA080 /* BarGraphView.swift in Sources */,
@@ -344,6 +350,7 @@
 				D2839AA0282375A80007BABB /* SurveyViewModel.swift in Sources */,
 				E33CA61728279D7B006DA080 /* BarGraphView.swift in Sources */,
 				D2839A8D28236F2E0007BABB /* UserSearchView.swift in Sources */,
+				E3D01FBC2829041D00B3C92B /* GaugeView.swift in Sources */,
 				D2839A7328236C180007BABB /* Stress_AnalyzerTests.swift in Sources */,
 				D2839A9C282374F00007BABB /* Survey.swift in Sources */,
 				D2839A99282374F00007BABB /* ChartData.swift in Sources */,
@@ -358,6 +365,7 @@
 			files = (
 				D2839AA1282375A80007BABB /* SurveyViewModel.swift in Sources */,
 				D2839A97282374F00007BABB /* SurveyResponse.swift in Sources */,
+				E3D01FBD2829041D00B3C92B /* GaugeView.swift in Sources */,
 				D2839AA528237C390007BABB /* SurveyResponseViewModel.swift in Sources */,
 				D2839A9A282374F00007BABB /* ChartData.swift in Sources */,
 				E33CA61828279D7B006DA080 /* BarGraphView.swift in Sources */,
