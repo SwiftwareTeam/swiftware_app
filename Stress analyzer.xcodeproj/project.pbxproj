@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D244D78E2828AAC6003FD37E /* PersonalityScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D244D78D2828AAC6003FD37E /* PersonalityScore.swift */; };
+		D244D78F2828AAC6003FD37E /* PersonalityScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D244D78D2828AAC6003FD37E /* PersonalityScore.swift */; };
+		D244D7902828AAC6003FD37E /* PersonalityScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D244D78D2828AAC6003FD37E /* PersonalityScore.swift */; };
 		D2839A6228236C120007BABB /* Stress_AnalyzerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2839A6128236C120007BABB /* Stress_AnalyzerApp.swift */; };
 		D2839A6428236C120007BABB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2839A6328236C120007BABB /* ContentView.swift */; };
 		D2839A6628236C180007BABB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2839A6528236C180007BABB /* Assets.xcassets */; };
@@ -58,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D244D78D2828AAC6003FD37E /* PersonalityScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalityScore.swift; sourceTree = "<group>"; };
 		D2839A5E28236C120007BABB /* Stress Analyzer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stress Analyzer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2839A6128236C120007BABB /* Stress_AnalyzerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stress_AnalyzerApp.swift; sourceTree = "<group>"; };
 		D2839A6328236C120007BABB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				D2839A93282374EF0007BABB /* ChartData.swift */,
+				D244D78D2828AAC6003FD37E /* PersonalityScore.swift */,
 				D2839A94282374EF0007BABB /* Survey.swift */,
 				D2839A92282374EF0007BABB /* SurveyResponse.swift */,
 			);
@@ -325,6 +330,7 @@
 			files = (
 				D2839A9F282375A80007BABB /* SurveyViewModel.swift in Sources */,
 				D2839A95282374F00007BABB /* SurveyResponse.swift in Sources */,
+				D244D78E2828AAC6003FD37E /* PersonalityScore.swift in Sources */,
 				D2839AA328237C390007BABB /* SurveyResponseViewModel.swift in Sources */,
 				D2839A98282374F00007BABB /* ChartData.swift in Sources */,
 				E33CA61628279D7B006DA080 /* BarGraphView.swift in Sources */,
@@ -349,6 +355,7 @@
 				D2839A99282374F00007BABB /* ChartData.swift in Sources */,
 				D2839A96282374F00007BABB /* SurveyResponse.swift in Sources */,
 				D2F340462825721700DB74FB /* AnalyticsViewModel.swift in Sources */,
+				D244D78F2828AAC6003FD37E /* PersonalityScore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +365,7 @@
 			files = (
 				D2839AA1282375A80007BABB /* SurveyViewModel.swift in Sources */,
 				D2839A97282374F00007BABB /* SurveyResponse.swift in Sources */,
+				D244D7902828AAC6003FD37E /* PersonalityScore.swift in Sources */,
 				D2839AA528237C390007BABB /* SurveyResponseViewModel.swift in Sources */,
 				D2839A9A282374F00007BABB /* ChartData.swift in Sources */,
 				E33CA61828279D7B006DA080 /* BarGraphView.swift in Sources */,
