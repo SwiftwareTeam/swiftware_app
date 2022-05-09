@@ -13,7 +13,7 @@ struct UserSearchView: View {
     @State private var searchText = ""
     
     init() {
-        UITableView.appearance().backgroundColor = UIColor(#colorLiteral(red: 0.5843137255, green: 0.5176470588, blue: 1, alpha: 1))
+        UITableView.appearance().backgroundColor = UIColor(red: 0.5843137255, green: 0.5176470588, blue: 1, alpha: 1)
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = UIColor.white
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = UIColor.black

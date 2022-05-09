@@ -13,11 +13,14 @@ final class AnalyticsViewModel: ObservableObject {
     /// of surveyID, and values of [ChartData] which
     /// represent the list of ChartData objects for
     /// each question of the survey.
-    @Published var ResponseRatesBySurvey : [Int : [ChartData]]
+    @Published var ResponseRatesBySurvey: [Int: [ChartData]]
+    @Published var personalityScores: [String: PersonalityScore]
+    let baseURL = "http://swiftware.tech"
 
     init() {
         // New class properties should be initialized in here
         self.ResponseRatesBySurvey = [Int : [ChartData]]()
+        self.personalityScores = [String: PersonalityScore]()
     }
 
     // TODO: Implement Function
@@ -29,5 +32,33 @@ final class AnalyticsViewModel: ObservableObject {
     ///  can be saved using `ResposneRatesBySurvey[1] = chartDataList`
     func getAvgResponseRate(surveyID : Int) async {
 
+    }
+
+    func personalityScore(for user: String) async {
+        print("Retrieving Score")
+        guard let url = URL(string: "\(baseURL)/getPersonalityScore/\(user)") else {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+
+        do {
+            let (data, response ) = try await URLSession.shared.data(for: request)
+
+            guard let HttpResponse = response as? HTTPURLResponse else {
+                print("Unable to decode response as HTTPURLResponse")
+                return
+            }
+            guard HttpResponse.statusCode == 200 else {
+                print("Status Code: \(HttpResponse.statusCode) != 200")
+                return
+            }
+
+            if let personalityScore = try? JSONDecoder().decode(PersonalityScore.self, from: data) {
+                personalityScores[user] = personalityScore
+            }
+        } catch {
+            print("unable to retrieve Personality Score from server. Reason: \(error)")
+        }
     }
 }

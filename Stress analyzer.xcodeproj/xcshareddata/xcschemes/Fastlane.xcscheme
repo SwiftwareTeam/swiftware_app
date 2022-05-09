@@ -17,7 +17,7 @@
                BlueprintIdentifier = "D2839A5D28236C120007BABB"
                BuildableName = "Stress Analyzer.app"
                BlueprintName = "Stress Analyzer"
-               ReferencedContainer = "container:Stress Analyzer.xcodeproj">
+               ReferencedContainer = "container:Stress analyzer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "D2839A6D28236C180007BABB"
                BuildableName = "Stress AnalyzerTests.xctest"
                BlueprintName = "Stress AnalyzerTests"
-               ReferencedContainer = "container:Stress Analyzer.xcodeproj">
+               ReferencedContainer = "container:Stress analyzer.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -45,7 +45,7 @@
                BlueprintIdentifier = "D2839A7728236C180007BABB"
                BuildableName = "Stress AnalyzerUITests.xctest"
                BlueprintName = "Stress AnalyzerUITests"
-               ReferencedContainer = "container:Stress Analyzer.xcodeproj">
+               ReferencedContainer = "container:Stress analyzer.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -67,7 +67,7 @@
             BlueprintIdentifier = "D2839A5D28236C120007BABB"
             BuildableName = "Stress Analyzer.app"
             BlueprintName = "Stress Analyzer"
-            ReferencedContainer = "container:Stress Analyzer.xcodeproj">
+            ReferencedContainer = "container:Stress analyzer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -84,7 +84,7 @@
             BlueprintIdentifier = "D2839A5D28236C120007BABB"
             BuildableName = "Stress Analyzer.app"
             BlueprintName = "Stress Analyzer"
-            ReferencedContainer = "container:Stress Analyzer.xcodeproj">
+            ReferencedContainer = "container:Stress analyzer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
