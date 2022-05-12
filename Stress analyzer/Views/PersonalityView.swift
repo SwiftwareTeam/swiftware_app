@@ -18,15 +18,17 @@ struct PersonalityView: View {
             Picker("Select a User", selection: $user) {
                 ForEach(surveyResponseViewModel.users, id: \.self) { user in
                     Text(user)
+                    
                 }
             }
             .pickerStyle(.wheel)
+            
             .onChange(of: user) { user in
                 Task { await analyticsViewModel.personalityScore(for: user) }
             }
 
             List(Array(zip(analyticsViewModel.personalityScores[user]?.categories ?? [String](),
-                           analyticsViewModel.personalityScores[user]?.scores.map { String(format: "%.0f %%", $0*100.0) } ??  [String]())), id: \.self.0) { (category, score) in
+                           analyticsViewModel.personalityScores[user]?.scores.map { String(format: "%.0f%%", $0*100.0) } ??  [String]())), id: \.self.0) { (category, score) in
                 HStack {
                     Text(category).bold()
                     Spacer()
