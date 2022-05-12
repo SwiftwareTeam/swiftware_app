@@ -66,8 +66,6 @@ final class SurveyResponseViewModel: ObservableObject {
             print("unable to retrieve users from server. Reason: \(error)")
         }
         
-        
-        
     }
     
 
