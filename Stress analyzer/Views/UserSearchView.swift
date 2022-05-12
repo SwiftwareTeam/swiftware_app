@@ -57,9 +57,7 @@ struct SurveyView: View {
     
     var body: some View {
         NavigationView {
-            //Text("ee")
             VStack{
-                
                 HStack {
                     Spacer().frame(width: 50)
                     Button {
@@ -78,7 +76,6 @@ struct SurveyView: View {
                             
                     }
                     Spacer().frame(width: 50)
-                    
                 }
                 
                 if surveyResponseData.surveyResp.count > 0 {
@@ -86,7 +83,6 @@ struct SurveyView: View {
                     Text(surveyResponseData.surveyResp[0].uid)
                         .font(.largeTitle)
                     var number = (surveyResponseData.surveyResp[0].responses[index] ?? 1) ?? 1
-                    //Text("\(number)")
                     if survey.surveys.count > 0 {
                         Spacer()
                         Text(survey.surveys[0].questions[index]?.fullWording ?? "--")
@@ -95,7 +91,6 @@ struct SurveyView: View {
                         Spacer()
                     }
                 }
-//
             }
         }
         .task {
