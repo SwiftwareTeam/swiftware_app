@@ -9,7 +9,6 @@ import SwiftUI
 
 struct UserSearchView: View {
     @EnvironmentObject var surveyResponseData: SurveyResponseViewModel
-
     @State private var searchText = ""
     
     init() {
@@ -24,7 +23,7 @@ struct UserSearchView: View {
             List {
                 ForEach(searchResults, id: \.self) { user in
                     HStack {
-                        NavigationLink(user, destination: Text(user))
+                        NavigationLink(user, destination: SurveyView(currUser: user))
                         Spacer()
                         Image(systemName: "person.crop.circle")
                     }
@@ -46,6 +45,76 @@ struct UserSearchView: View {
         } else {
             return surveyResponseData.users.filter({$0.contains(searchText)})
         }
+    }
+}
+
+struct SurveyView: View {
+    var currUser: String
+    @EnvironmentObject var surveyResponseData: SurveyResponseViewModel
+    @EnvironmentObject var survey: SurveyViewModel
+    @State private var index = 1
+    @State private var respCount = 0
+    
+    var body: some View {
+        NavigationView {
+            //Text("ee")
+            VStack{
+                
+                HStack {
+                    Spacer().frame(width: 50)
+                    Button {
+                        traversePrev()
+                    } label: {
+                        Text("prev")
+                            .foregroundColor(Color(.blue))
+                    }
+                    Spacer()
+                    
+                    Button {
+                        traverseNext()
+                    } label: {
+                        Text("next")
+                            .foregroundColor(Color(.blue))
+                            
+                    }
+                    Spacer().frame(width: 50)
+                    
+                }
+                
+                if surveyResponseData.surveyResp.count > 0 {
+                    
+                    Text(surveyResponseData.surveyResp[0].uid)
+                        .font(.largeTitle)
+                    var number = (surveyResponseData.surveyResp[0].responses[index] ?? 1) ?? 1
+                    //Text("\(number)")
+                    if survey.surveys.count > 0 {
+                        Spacer()
+                        Text(survey.surveys[0].questions[index]?.fullWording ?? "--")
+                        Spacer().frame(height: 50)
+                        Text(survey.surveys[0].answers[number]?.label ?? "--")
+                        Spacer()
+                    }
+                }
+//
+            }
+        }
+        .task {
+            await surveyResponseData.getUsers()
+            await surveyResponseData.loadResponses(uid: currUser)
+            await survey.getSurveys()
+        }
+    }
+    func traverseNext() {
+        index+=1
+    }
+    func traversePrev() {
+        if index > 1 {
+            index-=1
+            //currUser = surveyResponseData.users[index]
+        }
+    }
+    func loadCnt() {
+        respCount = surveyResponseData.surveyResp.count
     }
 }
 

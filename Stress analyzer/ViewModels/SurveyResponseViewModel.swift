@@ -61,10 +61,13 @@ final class SurveyResponseViewModel: ObservableObject {
             let (data, _) = try await URLSession.shared.data(for: request)
             surveyResp = try JSONDecoder().decode([SurveyResponse].self, from: data)
         
-            print(surveyResp)
+            print(surveyResp[1])
         } catch {
             print("unable to retrieve users from server. Reason: \(error)")
         }
+        
+        
+        
     }
     
 
