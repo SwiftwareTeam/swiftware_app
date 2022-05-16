@@ -52,8 +52,12 @@ struct SurveyView: View {
     var currUser: String
     @EnvironmentObject var surveyResponseData: SurveyResponseViewModel
     @EnvironmentObject var survey: SurveyViewModel
+    
     @State private var index = 1
     @State private var respCount = 0
+    
+    
+    @State private var showSelection = false
     
     var body: some View {
         NavigationView {
@@ -63,7 +67,8 @@ struct SurveyView: View {
                     Button {
                         traversePrev()
                     } label: {
-                        Text("prev")
+                        Image(systemName: "arrow.left.circle.fill")
+                            .imageScale(.large)
                             .foregroundColor(Color(.blue))
                     }
                     Spacer()
@@ -71,26 +76,91 @@ struct SurveyView: View {
                     Button {
                         traverseNext()
                     } label: {
-                        Text("next")
+                        Image(systemName: "arrow.right.circle.fill")
+                            .imageScale(.large)
                             .foregroundColor(Color(.blue))
-                            
                     }
                     Spacer().frame(width: 50)
-                }
+                    
+                }.frame(height: 100)
+                
+                
                 
                 if surveyResponseData.surveyResp.count > 0 {
                     
                     Text(surveyResponseData.surveyResp[0].uid)
                         .font(.largeTitle)
-                    var number = (surveyResponseData.surveyResp[0].responses[index] ?? 1) ?? 1
+
+                    var number = (surveyResponseData.surveyResp[0].responses[index] ?? 0) ?? 0
+
                     if survey.surveys.count > 0 {
                         Spacer()
                         Text(survey.surveys[0].questions[index]?.fullWording ?? "--")
                         Spacer().frame(height: 50)
-                        Text(survey.surveys[0].answers[number]?.label ?? "--")
-                        Spacer()
+                        if number == 0 {
+                            Text("No Answer")
+                            
+                        } else {
+                            Text(survey.surveys[0].answers[number]?.label ?? "--")
+                        }
                     }
                 }
+
+                Spacer()
+                HStack{
+                    Spacer()
+                    if showSelection { // New answer buttons
+                        Button {
+                            showSelection.toggle()
+                            editResponse(num: 1)
+                        } label: {
+                            Text(" DS").foregroundColor(Color(.black))
+                        }
+                        Button {
+                            showSelection.toggle()
+                            editResponse(num: 2)
+                        } label: {
+                            Text(" D").foregroundColor(Color(.black))
+                        }
+                        Button {
+                            showSelection.toggle()
+                            editResponse(num: 3)
+                        } label: {
+                            Text(" N").foregroundColor(Color(.black))
+                        }
+                        Button {
+                            showSelection.toggle()
+                            editResponse(num: 4)
+                        } label: {
+                            Text(" A").foregroundColor(Color(.black))
+                        }
+                        Button {
+                            showSelection.toggle()
+                            editResponse(num: 5)
+                        } label: {
+                            Text(" AS").foregroundColor(Color(.black))
+                        }
+                    }
+                    Button {
+                        showSelection.toggle()
+                    } label: {
+                        Image(systemName: "rectangle.badge.plus")
+                            .imageScale(.large)
+                            .frame(width: 50, height: 50, alignment: .trailing)
+                            .foregroundColor(Color(.blue))
+                    }
+                    Button {
+                        clearResponse()
+                    } label: {
+                        Image(systemName: "trash")
+                            .imageScale(.large)
+                            .frame(width: 50, height: 50, alignment: .trailing)
+                            .foregroundColor(Color(.blue))
+                    }
+                }
+                
+                //Spacer().frame(height: 22)
+
             }
         }
         .task {
@@ -108,6 +178,13 @@ struct SurveyView: View {
             //currUser = surveyResponseData.users[index]
         }
     }
+    func clearResponse() {
+        surveyResponseData.surveyResp[0].responses[index] = nil
+        //api call
+    }
+    func editResponse(num: Int) {
+        surveyResponseData.surveyResp[0].responses[index] = num
+    }
     func loadCnt() {
         respCount = surveyResponseData.surveyResp.count
     }
@@ -117,7 +194,6 @@ struct UserSearch_Previews: PreviewProvider {
     static var previews: some View {
         UserSearchView()
             .environmentObject(SurveyResponseViewModel())
+            .environmentObject(SurveyViewModel())
     }
 }
-
-
