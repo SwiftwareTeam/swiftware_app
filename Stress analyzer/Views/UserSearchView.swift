@@ -81,38 +81,31 @@ struct SurveyView: View {
                             .foregroundColor(Color(.blue))
                     }
                     Spacer().frame(width: 50)
-<<<<<<< Updated upstream
+
                 }
-=======
+
                     
                 }.frame(height: 100)
-                
-                
->>>>>>> Stashed changes
                 
                 if surveyResponseData.surveyResp.count > 0 {
                     
                     Text(surveyResponseData.surveyResp[0].uid)
                         .font(.largeTitle)
-<<<<<<< Updated upstream
-                    var number = (surveyResponseData.surveyResp[0].responses[index] ?? 1) ?? 1
-=======
+
                     var number = (surveyResponseData.surveyResp[0].responses[index] ?? 0) ?? 0
->>>>>>> Stashed changes
+
                     if survey.surveys.count > 0 {
                         Spacer()
                         Text(survey.surveys[0].questions[index]?.fullWording ?? "--")
                         Spacer().frame(height: 50)
                         if number == 0 {
                             Text("No Answer")
-                            
                         } else {
                             Text(survey.surveys[0].answers[number]?.label ?? "--")
                         }
                     }
                 }
-<<<<<<< Updated upstream
-=======
+            
                 Spacer()
                 HStack{
                     Spacer()
@@ -165,9 +158,6 @@ struct SurveyView: View {
                             .foregroundColor(Color(.blue))
                     }
                 }
-                
-                //Spacer().frame(height: 22)
->>>>>>> Stashed changes
             }
         }
         .task {
