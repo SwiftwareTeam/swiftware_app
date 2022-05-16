@@ -99,6 +99,7 @@ struct SurveyView: View {
             await survey.getSurveys()
         }
     }
+    
     func traverseNext() {
         index+=1
     }
