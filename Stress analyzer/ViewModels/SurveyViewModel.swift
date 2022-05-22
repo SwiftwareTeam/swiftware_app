@@ -12,12 +12,12 @@ import Foundation
  */
 @MainActor
 final class SurveyViewModel: ObservableObject {
-    @Published var surveys : [Survey]
+    @Published var surveys : [Int: Survey] /// surveyID: Survey
     let baseURL = "http://swiftware.tech"
     
     init() {
         // New class properties should be initialized in here
-        self.surveys = [Survey]()
+        self.surveys = [Int: Survey]()
     }
 
     // TODO: Implement Function
@@ -31,10 +31,10 @@ final class SurveyViewModel: ObservableObject {
         do {
             let (data, _ ) = try await URLSession.shared.data(for: request)
             
-            if let ss = try? JSONDecoder().decode([Survey].self, from: data) {
+            if let surveyArray = try? JSONDecoder().decode([Survey].self, from: data) {
                 //self.users = userList
                 
-                self.surveys = ss
+                self.surveys = Dictionary(uniqueKeysWithValues: surveyArray.map { ($0.id, $0)} )
                 print(surveys)
             }
             

@@ -30,32 +30,39 @@ struct BarGraphView: View {
             ZStack {
                 Color(red: 0.5843137255, green: 0.5176470588, blue: 1).edgesIgnoringSafeArea(.all)
                 VStack {
-                    if surveyViewModel.surveys.count > 0 {
-                        Text(surveyViewModel.surveys[0].questions[defaultQuestion]?.fullWording ?? "")
-                            .font(.system(size: 20))
-                            .fontWeight(.heavy)
-                            .foregroundColor(.white)
-                            .padding(.bottom, 10)
-                    }
-                    
-                    Picker(selection: $pickerSelectedItem, label: Text("")) {
-                        Text("Pre").tag(0)
-                        Text("Post").tag(1)
-                    }
-                    .pickerStyle(.menu)
-                        .padding(.horizontal, 70)
+                    VStack {
+                        Text("Select a Question").foregroundColor(.white).fontWeight(.bold)
+                        RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
+                            .fill(.white)
+                            .frame(width: 180, height: 30)
+                            .overlay {
+                                Picker(selection: $defaultQuestion, label: Text("")) {
+                                    ForEach(surveyViewModel.surveys[1]?.questions.map { $0.key }.sorted() ?? [1], id: \.self) { id in
+                                        Text("Question \(id)")
+                                    }
+                                }
+                                .pickerStyle(.menu)
+                                    .padding(.horizontal, 70)
+                        }
+                    }.padding(.bottom, 20)
+
+                    Text(surveyViewModel.surveys[1]?.questions[defaultQuestion]?.fullWording ?? "")
+                        .font(.system(size: 20))
+                        .fontWeight(.heavy)
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                        .padding(30)
                     
                     HStack (spacing: 16){
-                        BarView(value: dataPoints[pickerSelectedItem][0], label: "SD")
-                        BarView(value: dataPoints[pickerSelectedItem][1], label: "DL")
-                        BarView(value: dataPoints[pickerSelectedItem][2], label: "N")
-                        BarView(value: dataPoints[pickerSelectedItem][3], label: "AL")
-                        BarView(value: dataPoints[pickerSelectedItem][4], label: "SA")
-
-                       
+//                        BarView(value: dataPoints[pickerSelectedItem][0], label: "SD")
+//                        BarView(value: dataPoints[pickerSelectedItem][1], label: "DL")
+//                        BarView(value: dataPoints[pickerSelectedItem][2], label: "N")
+//                        BarView(value: dataPoints[pickerSelectedItem][3], label: "AL")
+//                        BarView(value: dataPoints[pickerSelectedItem][4], label: "SA")
                     }
                     .padding(.top, 30)
                         .animation(.default)
+                    Spacer()
                 }
                 .padding(.bottom, 60)
                 

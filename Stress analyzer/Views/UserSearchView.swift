@@ -95,13 +95,13 @@ struct SurveyView: View {
 
                     if survey.surveys.count > 0 {
                         Spacer()
-                        Text(survey.surveys[0].questions[index]?.fullWording ?? "--")
+                        Text(survey.surveys[1]?.questions[index]?.fullWording ?? "--")
                         Spacer().frame(height: 50)
                         if number == 0 {
                             Text("No Answer")
                             
                         } else {
-                            Text(survey.surveys[0].answers[number]?.label ?? "--")
+                            Text(survey.surveys[1]?.answers[number]?.label ?? "--")
                         }
                     }
                 }
