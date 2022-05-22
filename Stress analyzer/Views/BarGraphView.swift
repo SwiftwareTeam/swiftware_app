@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct BarGraphView: View {
+    @EnvironmentObject var analyticsViewModel: AnalyticsViewModel
+    @EnvironmentObject var surveyViewModel: SurveyViewModel
+    @State var defaultQuestion = 1
     @State var pickerSelectedItem = 0
     
     @State var dataPoints: [[CGFloat]] = [
@@ -27,17 +30,19 @@ struct BarGraphView: View {
             ZStack {
                 Color(red: 0.5843137255, green: 0.5176470588, blue: 1).edgesIgnoringSafeArea(.all)
                 VStack {
-                    Text("Question")
-                        .font(.system(size: 20))
-                        .fontWeight(.heavy)
-                        .foregroundColor(.white)
-                        .padding(.bottom, 10)
+                    if surveyViewModel.surveys.count > 0 {
+                        Text(surveyViewModel.surveys[0].questions[defaultQuestion]?.fullWording ?? "")
+                            .font(.system(size: 20))
+                            .fontWeight(.heavy)
+                            .foregroundColor(.white)
+                            .padding(.bottom, 10)
+                    }
                     
                     Picker(selection: $pickerSelectedItem, label: Text("")) {
                         Text("Pre").tag(0)
                         Text("Post").tag(1)
                     }
-                    .pickerStyle(SegmentedPickerStyle())
+                    .pickerStyle(.menu)
                         .padding(.horizontal, 70)
                     
                     HStack (spacing: 16){
@@ -54,6 +59,9 @@ struct BarGraphView: View {
                 }
                 .padding(.bottom, 60)
                 
+            }
+            .task {
+                await surveyViewModel.getSurveys()
             }
             
         }
@@ -86,5 +94,7 @@ struct BarView: View {
 struct BarGraphView_Previews: PreviewProvider {
     static var previews: some View {
         BarGraphView()
+            .environmentObject(AnalyticsViewModel())
+            .environmentObject(SurveyViewModel())
     }
 }
