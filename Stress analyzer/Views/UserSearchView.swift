@@ -57,6 +57,7 @@ struct UserSearchView: View {
     @State private var searchText = ""
     @State private var isShowingAlert = false
     @State private var newInput = ""
+    @State private var deleteMode = false
     
     init() {
         UITableView.appearance().backgroundColor = UIColor(red: 0.5843137255, green: 0.5176470588, blue: 1, alpha: 1)
@@ -70,9 +71,21 @@ struct UserSearchView: View {
             List {
                 ForEach(searchResults, id: \.self) { user in
                     HStack {
-                        NavigationLink(user, destination: SurveyView(currUser: user))
-                        Spacer()
-                        Image(systemName: "person.crop.circle")
+                        if deleteMode {
+                            Button {
+                                deleteUser(name: user)
+                                deleteMode.toggle()
+                            } label: {
+                                Text(user).foregroundColor(.black)
+                            }
+                            Spacer()
+                            Image(systemName: "person.crop.circle")
+                            Image(systemName: "minus.circle.fill").foregroundColor(.red)
+                        } else {
+                            NavigationLink(user, destination: SurveyView(currUser: user))
+                            Spacer()
+                            Image(systemName: "person.crop.circle")
+                        }
                     }
                 }
             }
@@ -86,8 +99,7 @@ struct UserSearchView: View {
                             .font(.title2)
                     }
                     Button {
-                        //addNullUser(name: "newguy")
-                        self.isShowingAlert.toggle()
+                        deleteMode.toggle()
                     } label: {
                         Image(systemName: "trash").foregroundColor(.white)
                             .font(.title2)
@@ -130,8 +142,13 @@ struct UserSearchView: View {
             return filtered_array
         }
     }
+    
     func addNullUser(name: String) {
         surveyResponseData.users.insert(name, at: 0)
+        //add api update here or when user clicks on result
+    }
+    func deleteUser(name: String) {
+        
     }
 }
 
@@ -269,7 +286,6 @@ struct SurveyView: View {
     func loadCnt() {
         respCount = surveyResponseData.surveyResp.count
     }
-    
 }
 
 struct UserSearch_Previews: PreviewProvider {
