@@ -48,6 +48,8 @@ struct TextFieldAlert<Presenting>: View where Presenting: View {
     }
 
 }
+/// Global variable used for the max number of results in the list view
+let listMaxDisplayCount = 50
 
 struct UserSearchView: View {
     @State var isAlert = false
@@ -55,6 +57,7 @@ struct UserSearchView: View {
     @State private var searchText = ""
     @State private var isShowingAlert = false
     @State private var newInput = ""
+    @State private var deleteMode = false
     
     init() {
         UITableView.appearance().backgroundColor = UIColor(red: 0.5843137255, green: 0.5176470588, blue: 1, alpha: 1)
@@ -68,9 +71,21 @@ struct UserSearchView: View {
             List {
                 ForEach(searchResults, id: \.self) { user in
                     HStack {
-                        NavigationLink(user, destination: SurveyView(currUser: user))
-                        Spacer()
-                        Image(systemName: "person.crop.circle")
+                        if deleteMode {
+                            Button {
+                                deleteUser(name: user)
+                                deleteMode.toggle()
+                            } label: {
+                                Text(user).foregroundColor(.black)
+                            }
+                            Spacer()
+                            Image(systemName: "person.crop.circle")
+                            Image(systemName: "minus.circle.fill").foregroundColor(.red)
+                        } else {
+                            NavigationLink(user, destination: SurveyView(currUser: user))
+                            Spacer()
+                            Image(systemName: "person.crop.circle")
+                        }
                     }
                 }
             }
@@ -84,8 +99,7 @@ struct UserSearchView: View {
                             .font(.title2)
                     }
                     Button {
-                        //addNullUser(name: "newguy")
-                        self.isShowingAlert.toggle()
+                        deleteMode.toggle()
                     } label: {
                         Image(systemName: "trash").foregroundColor(.white)
                             .font(.title2)
@@ -114,13 +128,27 @@ struct UserSearchView: View {
 
     var searchResults: [String] {
         if searchText.isEmpty {
+            if surveyResponseData.users.count > listMaxDisplayCount {
+                let firstFifty = surveyResponseData.users[..<listMaxDisplayCount]
+                return Array<String>(firstFifty)
+            }
             return surveyResponseData.users
         } else {
-            return surveyResponseData.users.filter({$0.contains(searchText)})
+            let filtered_array = surveyResponseData.users.filter({$0.contains(searchText)})
+            if filtered_array.count > listMaxDisplayCount {
+                let firstFifty = filtered_array[..<listMaxDisplayCount]
+                return Array<String>(firstFifty)
+            }
+            return filtered_array
         }
     }
+    
     func addNullUser(name: String) {
         surveyResponseData.users.insert(name, at: 0)
+        //add api update here or when user clicks on result
+    }
+    func deleteUser(name: String) {
+        
     }
 }
 
@@ -131,7 +159,6 @@ struct SurveyView: View {
     
     @State private var index = 1
     @State private var respCount = 0
-    
     
     @State private var showSelection = false
     
@@ -160,8 +187,6 @@ struct SurveyView: View {
                     
                 }.frame(height: 100)
                 
-                
-                
                 if surveyResponseData.surveyResp.count > 0 {
                     
                     Text(surveyResponseData.surveyResp[0].uid)
@@ -171,13 +196,13 @@ struct SurveyView: View {
 
                     if survey.surveys.count > 0 {
                         Spacer()
-                        Text(survey.surveys[0].questions[index]?.fullWording ?? "--")
+                        Text(survey.surveys[1]?.questions[index]?.fullWording ?? "--")
                         Spacer().frame(height: 50)
                         if number == 0 {
                             Text("No Answer")
                             
                         } else {
-                            Text(survey.surveys[0].answers[number]?.label ?? "--")
+                            Text(survey.surveys[1]?.answers[number]?.label ?? "--")
                         }
                     }
                 }
@@ -234,9 +259,6 @@ struct SurveyView: View {
                             .foregroundColor(Color(.blue))
                     }
                 }
-                
-                //Spacer().frame(height: 22)
-
             }
         }
         .task {
@@ -264,7 +286,6 @@ struct SurveyView: View {
     func loadCnt() {
         respCount = surveyResponseData.surveyResp.count
     }
-    
 }
 
 struct UserSearch_Previews: PreviewProvider {

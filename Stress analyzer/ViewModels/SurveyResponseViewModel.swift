@@ -48,20 +48,14 @@ final class SurveyResponseViewModel: ObservableObject {
     // TODO: Implement Function
     // Adjust function arguments as needed
     func loadResponses(uid: String) async {
-        
-        print ("inside func")
         let url = URL(string: baseURL + "/getResponses/" + uid)!
-        print ("url: " , url)
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        
 
         do {
-            print ("inside do task")
             let (data, _) = try await URLSession.shared.data(for: request)
             surveyResp = try JSONDecoder().decode([SurveyResponse].self, from: data)
-        
-            print(surveyResp)
+            
         } catch {
             print("unable to retrieve users from server. Reason: \(error)")
         }
