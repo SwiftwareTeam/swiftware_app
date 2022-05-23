@@ -12,6 +12,13 @@ struct ContentView: View {
     @EnvironmentObject var surveyResponseViewModel: SurveyResponseViewModel
     @EnvironmentObject var anlayticsViewModel: AnalyticsViewModel
     
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor(red: 0.5843137255, green: 0.5176470588, blue: 1.0, alpha: 1.0)
+        UITabBar.appearance().barTintColor = UIColor(red: 0.5843137255, green: 0.5176470588, blue: 1.0, alpha: 0.0)
+        UITabBar.appearance().unselectedItemTintColor = UIColor(red: 0.365, green: 0.286, blue: 1.0, alpha: 1.0)
+        
+    }
+    
     var body: some View {
         TabView {
             UserSearchView()
@@ -19,12 +26,18 @@ struct ContentView: View {
                     Image(systemName: "person.fill")
                     Text("Individual Statistics")
                 }
-            Text("Group Stats Go Here")
+            BarGraphView()
                 .tabItem {
                     Image(systemName: "person.3.fill")
                     Text("Group Statistics")
                 }
-        }
+            PersonalityView()
+                .tabItem {
+                    Image(systemName: "chart.pie.fill")
+                    Text("Personality Results")
+                }
+
+        }.accentColor(.white)
     }
 }
 

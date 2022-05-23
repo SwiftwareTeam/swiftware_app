@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D244D7922828F048003FD37E /* PersonalityScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D244D7912828F048003FD37E /* PersonalityScore.swift */; };
+		D244D7932828F048003FD37E /* PersonalityScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D244D7912828F048003FD37E /* PersonalityScore.swift */; };
+		D244D7942828F048003FD37E /* PersonalityScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D244D7912828F048003FD37E /* PersonalityScore.swift */; };
+		D244D7962828F7A5003FD37E /* PersonalityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D244D7952828F7A5003FD37E /* PersonalityView.swift */; };
+		D244D7972828F7A5003FD37E /* PersonalityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D244D7952828F7A5003FD37E /* PersonalityView.swift */; };
+		D244D7982828F7A5003FD37E /* PersonalityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D244D7952828F7A5003FD37E /* PersonalityView.swift */; };
 		D2839A6228236C120007BABB /* Stress_AnalyzerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2839A6128236C120007BABB /* Stress_AnalyzerApp.swift */; };
 		D2839A6428236C120007BABB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2839A6328236C120007BABB /* ContentView.swift */; };
 		D2839A6628236C180007BABB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2839A6528236C180007BABB /* Assets.xcassets */; };
@@ -35,6 +41,10 @@
 		D2F340452825721700DB74FB /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F340442825721700DB74FB /* AnalyticsViewModel.swift */; };
 		D2F340462825721700DB74FB /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F340442825721700DB74FB /* AnalyticsViewModel.swift */; };
 		D2F340472825721700DB74FB /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F340442825721700DB74FB /* AnalyticsViewModel.swift */; };
+		E3125C712831F9B1004F8DE0 /* GaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3125C702831F9B1004F8DE0 /* GaugeView.swift */; };
+		E33CA61628279D7B006DA080 /* BarGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33CA61528279D7B006DA080 /* BarGraphView.swift */; };
+		E33CA61728279D7B006DA080 /* BarGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33CA61528279D7B006DA080 /* BarGraphView.swift */; };
+		E33CA61828279D7B006DA080 /* BarGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33CA61528279D7B006DA080 /* BarGraphView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +65,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D244D7912828F048003FD37E /* PersonalityScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalityScore.swift; sourceTree = "<group>"; };
+		D244D7952828F7A5003FD37E /* PersonalityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalityView.swift; sourceTree = "<group>"; };
 		D2839A5E28236C120007BABB /* Stress Analyzer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stress Analyzer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2839A6128236C120007BABB /* Stress_AnalyzerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stress_AnalyzerApp.swift; sourceTree = "<group>"; };
 		D2839A6328236C120007BABB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,6 +85,8 @@
 		D2839AA228237C390007BABB /* SurveyResponseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyResponseViewModel.swift; sourceTree = "<group>"; };
 		D2839AAB28238A550007BABB /* Stress-Analyzer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Stress-Analyzer-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D2F340442825721700DB74FB /* AnalyticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewModel.swift; sourceTree = "<group>"; };
+		E3125C702831F9B1004F8DE0 /* GaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GaugeView.swift; path = "Stress analyzer/Views/GaugeView.swift"; sourceTree = SOURCE_ROOT; };
+		E33CA61528279D7B006DA080 /* BarGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BarGraphView.swift; path = "Stress analyzer/Views/BarGraphView.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +178,9 @@
 			isa = PBXGroup;
 			children = (
 				D2839A8B28236F2E0007BABB /* UserSearchView.swift */,
+				D244D7952828F7A5003FD37E /* PersonalityView.swift */,
+				E33CA61528279D7B006DA080 /* BarGraphView.swift */,
+				E3125C702831F9B1004F8DE0 /* GaugeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -172,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				D2839A93282374EF0007BABB /* ChartData.swift */,
+				D244D7912828F048003FD37E /* PersonalityScore.swift */,
 				D2839A94282374EF0007BABB /* Survey.swift */,
 				D2839A92282374EF0007BABB /* SurveyResponse.swift */,
 			);
@@ -267,7 +285,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D2839A5928236C120007BABB /* Build configuration list for PBXProject "Stress Analyzer" */;
+			buildConfigurationList = D2839A5928236C120007BABB /* Build configuration list for PBXProject "Stress analyzer" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -320,8 +338,12 @@
 			files = (
 				D2839A9F282375A80007BABB /* SurveyViewModel.swift in Sources */,
 				D2839A95282374F00007BABB /* SurveyResponse.swift in Sources */,
+				D244D7922828F048003FD37E /* PersonalityScore.swift in Sources */,
 				D2839AA328237C390007BABB /* SurveyResponseViewModel.swift in Sources */,
 				D2839A98282374F00007BABB /* ChartData.swift in Sources */,
+				D244D7962828F7A5003FD37E /* PersonalityView.swift in Sources */,
+				E33CA61628279D7B006DA080 /* BarGraphView.swift in Sources */,
+				E3125C712831F9B1004F8DE0 /* GaugeView.swift in Sources */,
 				D2839A8C28236F2E0007BABB /* UserSearchView.swift in Sources */,
 				D2F340452825721700DB74FB /* AnalyticsViewModel.swift in Sources */,
 				D2839A9B282374F00007BABB /* Survey.swift in Sources */,
@@ -336,12 +358,15 @@
 			files = (
 				D2839AA428237C390007BABB /* SurveyResponseViewModel.swift in Sources */,
 				D2839AA0282375A80007BABB /* SurveyViewModel.swift in Sources */,
+				E33CA61728279D7B006DA080 /* BarGraphView.swift in Sources */,
+				D244D7972828F7A5003FD37E /* PersonalityView.swift in Sources */,
 				D2839A8D28236F2E0007BABB /* UserSearchView.swift in Sources */,
 				D2839A7328236C180007BABB /* Stress_AnalyzerTests.swift in Sources */,
 				D2839A9C282374F00007BABB /* Survey.swift in Sources */,
 				D2839A99282374F00007BABB /* ChartData.swift in Sources */,
 				D2839A96282374F00007BABB /* SurveyResponse.swift in Sources */,
 				D2F340462825721700DB74FB /* AnalyticsViewModel.swift in Sources */,
+				D244D7932828F048003FD37E /* PersonalityScore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,8 +376,11 @@
 			files = (
 				D2839AA1282375A80007BABB /* SurveyViewModel.swift in Sources */,
 				D2839A97282374F00007BABB /* SurveyResponse.swift in Sources */,
+				D244D7942828F048003FD37E /* PersonalityScore.swift in Sources */,
 				D2839AA528237C390007BABB /* SurveyResponseViewModel.swift in Sources */,
 				D2839A9A282374F00007BABB /* ChartData.swift in Sources */,
+				D244D7982828F7A5003FD37E /* PersonalityView.swift in Sources */,
+				E33CA61828279D7B006DA080 /* BarGraphView.swift in Sources */,
 				D2839A8E28236F2E0007BABB /* UserSearchView.swift in Sources */,
 				D2F340472825721700DB74FB /* AnalyticsViewModel.swift in Sources */,
 				D2839A9D282374F00007BABB /* Survey.swift in Sources */,
@@ -630,7 +658,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D2839A5928236C120007BABB /* Build configuration list for PBXProject "Stress Analyzer" */ = {
+		D2839A5928236C120007BABB /* Build configuration list for PBXProject "Stress analyzer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D2839A8028236C180007BABB /* Debug */,
