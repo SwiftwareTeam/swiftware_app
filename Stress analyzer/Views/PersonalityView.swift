@@ -19,7 +19,6 @@ struct PersonalityView: View {
                 Picker("Select a User", selection: $user) {
                     ForEach(Array<String>(surveyResponseViewModel.users[..<20]), id: \.self) { user in
                         Text(user)
-
                     }
                 }
                 .pickerStyle(.wheel)
