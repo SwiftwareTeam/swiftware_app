@@ -75,34 +75,30 @@ final class SurveyResponseViewModel: ObservableObject {
         
     }
 
-    // TODO: Implement Function
-    // Adjust function arguments as needed
+
     func deleteResponse(surveyResp: SurveyResponse) async {
-        print ("in delete request method")
-        print ("surveyResp: ", surveyResp)
-        
         guard let url = URL(string: baseURL + "/deleteResponse") else {
                 print("Error: cannot create URL")
                 return
         }
         // Create the delete request
-        print("Url: ", url)
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        print ("im here")
-        //guard let httpBody = try? JSONSerialization.data(withJSONObject: id, options: []) else { return }
-        //request.httpBody = httpBody
-        //guard let data = Data(id.utf8) else { return }
-        let surveyRespData = withUnsafeBytes(of: surveyResp, { Data($0) })
-        print ("survey resp: ", surveyRespData)
-        print ("im there")
+
         do{
+            guard let surveyRespData = try JSONEncoder().encode(surveyResp) else{
+                print ("Error trying to encode Survey Response")
+                return
+            }
+            guard let httpresponse = response as? HTTPURLResponse, (200) <= httpresponse.statusCode else {
+                print("Error: HTTP request failed: ", error ?? "")
+                return
+            }
             let (_, response) = try await URLSession.shared.upload(for: request, from: surveyRespData )
             let httpResponse = response as? HTTPURLResponse
-            print ("http response: " , httpResponse)
-            print ("i think it worked lol")
+            print ("http response: " , httpResponse) //prints out response
         }
         catch{
             print("Error")
