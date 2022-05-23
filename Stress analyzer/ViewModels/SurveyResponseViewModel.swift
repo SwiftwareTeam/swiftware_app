@@ -151,13 +151,46 @@ final class SurveyResponseViewModel: ObservableObject {
         }
     }
 
-    // TODO: Implement Function
     func performBackup() async {
+        print("INFO : Initiated Request to Perform Backup")
+        guard let url = URL(string: baseURL + "/backup") else {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
 
+        do {
+            let (_, response) = try await URLSession.shared.data(for: request)
+
+            guard let httpResponse = response as? HTTPURLResponse, (200) <= httpResponse.statusCode else {
+                print("Error: Unable to decode the HTTP Response ")
+                return
+            }
+            print("(GET) Backup Status Code: \(httpResponse.statusCode)")
+        } catch {
+            print("unable to perform server backup. Reason: \(error)")
+        }
     }
 
-    // TODO: Implement Function
     func loadBackup() async {
+        print("INFO : Initiated Request to Load Backup")
+        guard let url = URL(string: baseURL + "/loadBackup") else {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+
+        do {
+            let (_, response) = try await URLSession.shared.data(for: request)
+
+            guard let httpResponse = response as? HTTPURLResponse, (200) <= httpResponse.statusCode else {
+                print("Error: Unable to decode the HTTP Response ")
+                return
+            }
+            print("(GET) Load-Backup Status Code: \(httpResponse.statusCode)")
+        } catch {
+            print("unable to perform server backup. Reason: \(error)")
+        }
 
     }
 
