@@ -12,16 +12,14 @@ import Foundation
  */
 @MainActor
 final class SurveyResponseViewModel: ObservableObject {
-    @Published var surveyResponses : [UUID : SurveyResponse]
     @Published var users: [String]
-    @Published var surveyResp: [SurveyResponse]
+    @Published var surveyResponses: [SurveyResponse]
     let baseURL = "http://swiftware.tech"
 
     init() {
         // New class properties should be initialized in here
         self.users = [String]()
-        self.surveyResponses = [UUID : SurveyResponse]()
-        self.surveyResp = [SurveyResponse]()
+        self.surveyResponses = [SurveyResponse]()
     }
 
     /**
@@ -45,8 +43,6 @@ final class SurveyResponseViewModel: ObservableObject {
         }
     }
 
-    // TODO: Implement Function
-    // Adjust function arguments as needed
     func loadResponses(uid: String) async {
         let url = URL(string: baseURL + "/getResponses/" + uid)!
         var request = URLRequest(url: url)
@@ -54,7 +50,7 @@ final class SurveyResponseViewModel: ObservableObject {
 
         do {
             let (data, _) = try await URLSession.shared.data(for: request)
-            surveyResp = try JSONDecoder().decode([SurveyResponse].self, from: data)
+            surveyResponses = try JSONDecoder().decode([SurveyResponse].self, from: data)
             
         } catch {
             print("unable to retrieve users from server. Reason: \(error)")
@@ -62,9 +58,8 @@ final class SurveyResponseViewModel: ObservableObject {
         
     }
     
-
-    
-    func createResponse(surveyResp: SurveyResponse) async {
+    func createResponse(_ surveyResp: SurveyResponse) async {
+        print("INFO : Creating Survey Response for \(surveyResp.id)")
         guard let url = URL(string: baseURL + "/createResponse") else {
                 print("Error: cannot create URL")
                 return
@@ -87,7 +82,7 @@ final class SurveyResponseViewModel: ObservableObject {
                 print("Error: Unable to decode the HTTP Response ")
                 return
             }
-            print ("http response: " , httpResponse) //prints out response
+            print("(POST) Status Code: \(httpResponse.statusCode)")
         }
         catch{
             print("Error")
@@ -95,7 +90,8 @@ final class SurveyResponseViewModel: ObservableObject {
     }
 
 
-    func deleteResponse(surveyResp: SurveyResponse) async {
+    func deleteResponse(_ surveyResp: SurveyResponse) async {
+        print("INFO : Deleting Survey Response \(surveyResp.id)")
         guard let url = URL(string: baseURL + "/deleteResponse") else {
                 print("Error: cannot create URL")
                 return
@@ -118,21 +114,19 @@ final class SurveyResponseViewModel: ObservableObject {
                 print("Error: Unable to decode the HTTP Response ")
                 return
             }
-            print ("http response: " , httpResponse) //prints out response
+            print("(DELETE) Status Code: \(httpResponse.statusCode)")
         }
         catch{
             print("Error")
         }
     }
 
-    // TODO: Implement Function
-    // Adjust function arguments as needed
-    func updateResponse(id: UUID) async {
+    func updateResponse(_ surveyResp: SurveyResponse) async {
+        print("INFO : Updating response for user \(surveyResp.uid)")
         guard let url = URL(string: baseURL + "/updateResponse") else {
                 print("Error: cannot create URL")
                 return
         }
-        // Create the update request
         var request = URLRequest(url: url)
         request.httpMethod = "PATCH"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -150,7 +144,7 @@ final class SurveyResponseViewModel: ObservableObject {
                 print("Error: Unable to decode the HTTP Response ")
                 return
             }
-            print ("http response: " , httpResponse) //prints out response
+            print("(PATCH) Status Code: \(httpResponse.statusCode)")
         }
         catch{
             print("Error")
@@ -165,5 +159,42 @@ final class SurveyResponseViewModel: ObservableObject {
     // TODO: Implement Function
     func loadBackup() async {
 
+    }
+
+    func removeResponses(forUser user: String) {
+        let userResponses = self.surveyResponses.filter { $0.uid == user }
+
+        print("Removing responses for user \(user)")
+
+        for response in userResponses {
+            Task { await self.deleteResponse(response)}
+        }
+
+        self.surveyResponses = surveyResponses.filter { $0.uid != user }
+        self.users = users.filter { $0 != user }
+    }
+
+    func addNewResponse(forUser user: String) {
+        let responses = Dictionary<Int, Int?>(uniqueKeysWithValues: Array<Int>(1...44).map { ($0, nil)})
+
+        let surveyResponse = SurveyResponse(uid: user,
+                                            surveyID: 1,
+                                            responseType: "post",
+                                            responses: responses)
+
+        Task { await self.createResponse(surveyResponse) }
+
+        self.surveyResponses.append(surveyResponse)
+
+        if !self.users.contains(user) {
+            self.users.append(user)
+        }
+    }
+
+    func updateExistingResponse(_ response: SurveyResponse) {
+        if let index = self.surveyResponses.firstIndex(where: { $0.id == response.id }) {
+            self.surveyResponses[index] = response
+            Task { await self.updateResponse(response) }
+        }
     }
 }

@@ -38,7 +38,6 @@ struct PersonalityView: View {
                 }
             }
 
-
             List(Array(zip(analyticsViewModel.personalityScores[user]?.categories ?? [String](),
                            analyticsViewModel.personalityScores[user]?.scores.map { String(format: "%.0f%%", $0*100.0) } ??  [String]())), id: \.self.0) { (category, score) in
                 HStack {

@@ -20,9 +20,9 @@ struct BarGraphView: View {
     ]
     
     init() {
-        UISegmentedControl.appearance().selectedSegmentTintColor = .white
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor(Color(#colorLiteral(red: 0.5843137255, green: 0.5176470588, blue: 1, alpha: 1)))], for: .selected)
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
+//        UISegmentedControl.appearance().selectedSegmentTintColor = .white
+//        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor(Color(#colorLiteral(red: 0.5843137255, green: 0.5176470588, blue: 1, alpha: 1)))], for: .selected)
+//        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
     }
     
     var body: some View {
@@ -42,7 +42,9 @@ struct BarGraphView: View {
                                     }
                                 }
                                 .pickerStyle(.menu)
-                                    .padding(.horizontal, 70)
+                                .padding(.horizontal, 70)
+                                .accentColor(Color(red: 0.5843137255, green: 0.5176470588, blue: 1))
+
                         }
                     }.padding(.bottom, 10)
 
@@ -52,10 +54,6 @@ struct BarGraphView: View {
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                         .padding(30)
-
-//                    ForEach(analyticsViewModel.getMeasureValues(surveyID: 1, questionID: defaultQuestion), id: \.self) { item in
-//                        Text("\(item)")
-//                    }
 
                     HStack (spacing: 16){
                         if analyticsViewModel.getMeasureValues(surveyID: 1, questionID: defaultQuestion).count > 0 {

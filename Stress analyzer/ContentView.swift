@@ -36,7 +36,6 @@ struct ContentView: View {
                     Image(systemName: "chart.pie.fill")
                     Text("Personality Results")
                 }
-
         }.accentColor(.white)
     }
 }
