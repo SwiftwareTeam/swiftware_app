@@ -92,6 +92,22 @@ struct UserSearchView: View {
             .toolbar {
                 HStack{
                     Button {
+                        Task { await surveyResponseData.performBackup() }
+                    } label: {
+                        Image(systemName: "clock.arrow.circlepath")
+                            .foregroundColor(.white)
+                            .font(.title2)
+                    }
+
+                    Button {
+                        Task { await surveyResponseData.loadBackup() }
+                    } label: {
+                        Image(systemName: "arrowshape.turn.up.right")
+                            .foregroundColor(.white)
+                            .font(.title2)
+                    }
+
+                    Button {
                         //addNullUser(name: "newguy")
                         self.isShowingAlert.toggle()
                     } label: {
