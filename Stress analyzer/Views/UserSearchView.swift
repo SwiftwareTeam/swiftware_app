@@ -36,6 +36,7 @@ struct TextFieldAlert<Presenting>: View where Presenting: View {
                 }
                 .padding()
                 .background(Color(red: 0.6843137255, green: 0.6176470588, blue: 1))
+                .cornerRadius(11)
                 .frame(
                     width: deviceSize.size.width*0.7,
                     height: deviceSize.size.height*0.7
