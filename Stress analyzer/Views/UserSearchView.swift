@@ -148,12 +148,7 @@ struct UserSearchView: View {
         //add api update here or when user clicks on result
     }
     func deleteUser(name: String) {
-        for i in 0...surveyResponseData.users.count-1 {
-            if name == surveyResponseData.users[i] {
-                surveyResponseData.users.remove(at: i)
-                return
-            }
-        }
+        
     }
 }
 
