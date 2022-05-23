@@ -48,6 +48,57 @@ struct TextFieldAlert<Presenting>: View where Presenting: View {
     }
 
 }
+struct DeleteAlert<Presenting>: View where Presenting: View {
+
+    @Binding var isShowing: Bool
+    @Binding var deleting: Bool
+    let presenting: Presenting
+    let title: String
+
+    var body: some View {
+        GeometryReader { (deviceSize: GeometryProxy) in
+            ZStack {
+                self.presenting
+                    .disabled(isShowing)
+                VStack {
+                    Text(self.title)
+                    Divider()
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            withAnimation {
+                                self.isShowing.toggle()
+                                deleting = true
+                            }
+                        }) {
+                            Text("Yes").foregroundColor(.blue)
+                        }
+                        Spacer()
+                        Button(action: {
+                            withAnimation {
+                                self.isShowing.toggle()
+                                deleting = false
+                            }
+                        }) {
+                            Text("No").foregroundColor(.blue)
+                        }
+                        Spacer()
+                    }
+                }
+                .padding()
+                .background(Color(red: 0.6843137255, green: 0.6176470588, blue: 1))
+                .cornerRadius(11)
+                .frame(
+                    width: deviceSize.size.width*0.7,
+                    height: deviceSize.size.height*0.7
+                )
+                .shadow(radius: 1)
+                .opacity(self.isShowing ? 1 : 0)
+            }
+        }
+    }
+
+}
 /// Global variable used for the max number of results in the list view
 let listMaxDisplayCount = 50
 
@@ -57,7 +108,12 @@ struct UserSearchView: View {
     @State private var searchText = ""
     @State private var isShowingAlert = false
     @State private var newInput = ""
+
+    @State private var deleting = false
     @State private var deleteMode = false
+    @State private var isShowingDelete = false
+
+    @State private var deletedUser = ""
     
     init() {
         UITableView.appearance().backgroundColor = UIColor(red: 0.5843137255, green: 0.5176470588, blue: 1, alpha: 1)
@@ -73,7 +129,12 @@ struct UserSearchView: View {
                     HStack {
                         if deleteMode {
                             Button {
-                                deleteUser(name: user)
+                                Task(priority: .userInitiated) {
+                                    print("Grabbing all the responses")
+                                    await surveyResponseData.loadResponses(uid: user)
+                                }
+                                deletedUser = user
+                                self.isShowingDelete.toggle()
                                 deleteMode.toggle()
                             } label: {
                                 Text(user).foregroundColor(.black)
@@ -127,15 +188,22 @@ struct UserSearchView: View {
             .searchable(text: $searchText)
         }
         .textFieldAlert(isShowing: $isShowingAlert, text: $newInput, title: "New User")
+        .deleteAlert(isShowing: $isShowingDelete, tf: $deleting, title: "Delete User?")
         .navigationViewStyle(StackNavigationViewStyle())
-        
-        .onChange(of: isShowingAlert) { whatever in
+
+        .onChange(of: isShowingAlert) { _ in
             if(!isShowingAlert && newInput != "") {
                 addNullUser(name: newInput)
                 print("New user added")
             }
-            
         }
+        .onChange(of: deleting) { _ in
+            if deleting {
+                deleteUser(name: deletedUser)
+                deleting = false
+            }
+        }
+
         
         .task {
             await surveyResponseData.getUsers()
@@ -324,6 +392,16 @@ extension View {
                         title: String) -> some View {
         TextFieldAlert(isShowing: isShowing,
                        text: text,
+                       presenting: self,
+                       title: title)
+    }
+    func deleteAlert(isShowing: Binding<Bool>,
+                     tf: Binding<Bool>,
+                    title: String) -> some View {
+
+        DeleteAlert(isShowing: isShowing,
+
+                    deleting: tf,
                        presenting: self,
                        title: title)
     }

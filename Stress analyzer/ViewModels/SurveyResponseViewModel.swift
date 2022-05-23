@@ -14,7 +14,8 @@ import Foundation
 final class SurveyResponseViewModel: ObservableObject {
     @Published var users: [String]
     @Published var surveyResponses: [SurveyResponse]
-    let baseURL = "http://swiftware.tech"
+//    let baseURL = "http://swiftware.tech"
+    let baseURL = "http://127.0.0.1:8080"
 
     init() {
         // New class properties should be initialized in here
@@ -49,8 +50,14 @@ final class SurveyResponseViewModel: ObservableObject {
         request.httpMethod = "GET"
 
         do {
-            let (data, _) = try await URLSession.shared.data(for: request)
+            let (data, response) = try await URLSession.shared.data(for: request)
             surveyResponses = try JSONDecoder().decode([SurveyResponse].self, from: data)
+
+            guard let httpResponse = response as? HTTPURLResponse, (200) <= httpResponse.statusCode else {
+                print("Error: Unable to decode the HTTP Response ")
+                return
+            }
+            print("(GET) Load Response Status Code: \(httpResponse.statusCode)")
             
         } catch {
             print("unable to retrieve users from server. Reason: \(error)")
@@ -199,8 +206,17 @@ final class SurveyResponseViewModel: ObservableObject {
 
         print("Removing responses for user \(user)")
 
+        var loaded = false
         for response in userResponses {
-            Task { await self.deleteResponse(response)}
+            print("Executing Asyncronous Task: Delete \(response.id)")
+            Task(priority: .userInitiated) {
+                if !loaded {
+                    await self.loadResponses(uid: user)
+                    loaded = true
+                }
+                await self.deleteResponse(response)
+
+            }
         }
 
         self.surveyResponses = surveyResponses.filter { $0.uid != user }
@@ -215,7 +231,11 @@ final class SurveyResponseViewModel: ObservableObject {
                                             responseType: "post",
                                             responses: responses)
 
-        Task { await self.createResponse(surveyResponse) }
+        Task(priority: .userInitiated) {
+            print("Executing Asyncronous Task: Create \(surveyResponse.id)")
+            await self.createResponse(surveyResponse)
+
+        }
 
         self.surveyResponses.append(surveyResponse)
 
@@ -227,7 +247,11 @@ final class SurveyResponseViewModel: ObservableObject {
     func updateExistingResponse(_ response: SurveyResponse) {
         if let index = self.surveyResponses.firstIndex(where: { $0.id == response.id }) {
             self.surveyResponses[index] = response
-            Task { await self.updateResponse(response) }
+            Task(priority: .userInitiated) {
+                print("Executing Asyncronous Task: Update \(response.id)")
+                await self.updateResponse(response)
+
+            }
         }
     }
 }
