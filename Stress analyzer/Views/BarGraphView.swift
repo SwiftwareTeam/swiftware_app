@@ -10,7 +10,7 @@ import SwiftUI
 struct BarGraphView: View {
     @EnvironmentObject var analyticsViewModel: AnalyticsViewModel
     @EnvironmentObject var surveyViewModel: SurveyViewModel
-    @State var defaultQuestion = 1
+    @State var defaultQuestion: Int = 1
     @State var pickerSelectedItem = 0
     
     @State var dataPoints: [[CGFloat]] = [
@@ -44,21 +44,46 @@ struct BarGraphView: View {
                                 .pickerStyle(.menu)
                                     .padding(.horizontal, 70)
                         }
-                    }.padding(.bottom, 20)
+                    }.padding(.bottom, 10)
 
-                    Text(surveyViewModel.surveys[1]?.questions[defaultQuestion]?.fullWording ?? "")
+                    Text(surveyViewModel.surveys[1]?.questions[defaultQuestion]?.fullWording ?? "Loading...")
                         .font(.system(size: 20))
                         .fontWeight(.heavy)
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                         .padding(30)
-                    
+
+//                    ForEach(analyticsViewModel.getMeasureValues(surveyID: 1, questionID: defaultQuestion), id: \.self) { item in
+//                        Text("\(item)")
+//                    }
+
                     HStack (spacing: 16){
-//                        BarView(value: dataPoints[pickerSelectedItem][0], label: "SD")
-//                        BarView(value: dataPoints[pickerSelectedItem][1], label: "DL")
-//                        BarView(value: dataPoints[pickerSelectedItem][2], label: "N")
-//                        BarView(value: dataPoints[pickerSelectedItem][3], label: "AL")
-//                        BarView(value: dataPoints[pickerSelectedItem][4], label: "SA")
+                        if analyticsViewModel.getMeasureValues(surveyID: 1, questionID: defaultQuestion).count > 0 {
+                            BarView(value: CGFloat(analyticsViewModel.getMeasureValues(surveyID: 1,
+                                                                                       questionID: defaultQuestion)[0]
+                                                   * 2.0),
+                                    label: "SD")
+                            BarView(value: CGFloat(analyticsViewModel.getMeasureValues(surveyID: 1,
+                                                                                       questionID: defaultQuestion)[1]
+                                                   * 2.0),
+                                    label: "DL")
+                            BarView(value: CGFloat(analyticsViewModel.getMeasureValues(surveyID: 1,
+                                                                                       questionID: defaultQuestion)[2]
+                                                   * 2.0),
+                                    label: "N")
+                            BarView(value: CGFloat(analyticsViewModel.getMeasureValues(surveyID: 1,
+                                                                                       questionID: defaultQuestion)[3]
+                                                   * 2.0),
+                                    label: "AL")
+                            BarView(value: CGFloat(analyticsViewModel.getMeasureValues(surveyID: 1,
+                                                                                       questionID: defaultQuestion)[4]
+                                                   * 2.0),
+                                    label: "SA")
+                            //                        BarView(value: dataPoints[pickerSelectedItem][1], label: "DL")
+                            //                        BarView(value: dataPoints[pickerSelectedItem][2], label: "N")
+                            //                        BarView(value: dataPoints[pickerSelectedItem][3], label: "AL")
+                            //                        BarView(value: dataPoints[pickerSelectedItem][4], label: "SA")
+                        }
                     }
                     .padding(.top, 30)
                         .animation(.default)
@@ -68,6 +93,7 @@ struct BarGraphView: View {
                 
             }
             .task {
+                await analyticsViewModel.getAvgResponseRate(surveyID: 1)
                 await surveyViewModel.getSurveys()
             }
             

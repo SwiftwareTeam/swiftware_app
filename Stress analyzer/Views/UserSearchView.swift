@@ -48,6 +48,8 @@ struct TextFieldAlert<Presenting>: View where Presenting: View {
     }
 
 }
+/// Global variable used for the max number of results in the list view
+let listMaxDisplayCount = 50
 
 struct UserSearchView: View {
     @State var isAlert = false
@@ -114,9 +116,18 @@ struct UserSearchView: View {
 
     var searchResults: [String] {
         if searchText.isEmpty {
+            if surveyResponseData.users.count > listMaxDisplayCount {
+                let firstFifty = surveyResponseData.users[..<listMaxDisplayCount]
+                return Array<String>(firstFifty)
+            }
             return surveyResponseData.users
         } else {
-            return surveyResponseData.users.filter({$0.contains(searchText)})
+            let filtered_array = surveyResponseData.users.filter({$0.contains(searchText)})
+            if filtered_array.count > listMaxDisplayCount {
+                let firstFifty = filtered_array[..<listMaxDisplayCount]
+                return Array<String>(firstFifty)
+            }
+            return filtered_array
         }
     }
     func addNullUser(name: String) {
@@ -131,7 +142,6 @@ struct SurveyView: View {
     
     @State private var index = 1
     @State private var respCount = 0
-    
     
     @State private var showSelection = false
     
@@ -159,8 +169,6 @@ struct SurveyView: View {
                     Spacer().frame(width: 50)
                     
                 }.frame(height: 100)
-                
-                
                 
                 if surveyResponseData.surveyResp.count > 0 {
                     
@@ -234,9 +242,6 @@ struct SurveyView: View {
                             .foregroundColor(Color(.blue))
                     }
                 }
-                
-                //Spacer().frame(height: 22)
-
             }
         }
         .task {
