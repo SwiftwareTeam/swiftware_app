@@ -88,16 +88,17 @@ final class SurveyResponseViewModel: ObservableObject {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
 
         do{
-            guard let surveyRespData = try JSONEncoder().encode(surveyResp) else{
+            guard let surveyRespData = try? JSONEncoder().encode(surveyResp) else{
                 print ("Error trying to encode Survey Response")
                 return
             }
-            guard let httpresponse = response as? HTTPURLResponse, (200) <= httpresponse.statusCode else {
-                print("Error: HTTP request failed: ", error ?? "")
+
+            let (_, response) = try await URLSession.shared.upload(for: request, from: surveyRespData )
+
+            guard let httpResponse = response as? HTTPURLResponse, (200) <= httpResponse.statusCode else {
+                print("Error: Unable to decode the HTTP Response ")
                 return
             }
-            let (_, response) = try await URLSession.shared.upload(for: request, from: surveyRespData )
-            let httpResponse = response as? HTTPURLResponse
             print ("http response: " , httpResponse) //prints out response
         }
         catch{
