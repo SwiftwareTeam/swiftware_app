@@ -13,28 +13,27 @@ final class AnalyticsViewModel: ObservableObject {
     /// of surveyID, and values of [ChartData] which
     /// represent the list of ChartData objects for
     /// each question of the survey.
-    @Published var ResponseRatesBySurvey: [ChartData]
+    @Published var responseRatesBySurvey: [Int: [ChartData]]
     @Published var personalityScores: [String: PersonalityScore]
     let baseURL = "http://swiftware.tech"
 
     init() {
         // New class properties should be initialized in here
-        self.ResponseRatesBySurvey =  [ChartData]()
+        self.responseRatesBySurvey =  [Int: [ChartData]]()
         self.personalityScores = [String: PersonalityScore]()
     }
 
     func getAvgResponseRate(surveyID : Int) async {
-        let url = URL(string: baseURL + "avgResponseRate/" + String(surveyID))!
-        //print ("url: " , url)
+        print("Retreiving chart data for avg response")
+        let url = URL(string: baseURL + "/avgResponseRate/" + String(surveyID))!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
         do {
-            print ("inside do task")
             let (data, _) = try await URLSession.shared.data(for: request)
-            ResponseRatesBySurvey = try JSONDecoder().decode([ChartData].self, from: data)
-        
-            print(ResponseRatesBySurvey[surveyID])
+            let chartDataArray = try JSONDecoder().decode([ChartData].self, from: data)
+            print("Retrieved \(chartDataArray.count) charts for survey \(surveyID)")
+            self.responseRatesBySurvey[surveyID] = chartDataArray
             
         } catch {
             print("unable to retrieve average response rates. Reason: \(error)")
@@ -42,7 +41,6 @@ final class AnalyticsViewModel: ObservableObject {
     }
 
     func personalityScore(for user: String) async {
-        print("Retrieving Score")
         guard let url = URL(string: "\(baseURL)/getPersonalityScore/\(user)") else {
             return
         }
@@ -67,5 +65,20 @@ final class AnalyticsViewModel: ObservableObject {
         } catch {
             print("unable to retrieve Personality Score from server. Reason: \(error)")
         }
+    }
+
+    func getMeasureValues(surveyID: Int, questionID: Int) -> [Double] {
+        guard let chartDataArray = self.responseRatesBySurvey[surveyID] else {
+            print("Chart Data Array for Survey \(surveyID) not found")
+            return [Double]()
+
+        }
+
+        guard (questionID - 1) < chartDataArray.count else {
+            print("Question ID Out of  Bounds of Chart Data object")
+            return [Double]()
+        }
+
+        return chartDataArray[questionID - 1].measureValues
     }
 }

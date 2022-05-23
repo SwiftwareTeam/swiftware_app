@@ -20,7 +20,6 @@ struct Stress_AnalyzerApp: App {
                 .environmentObject(surveyResponseData)
                 .environmentObject(surveyViewModel)
                 .environmentObject(analyticsViewModel)
-
         }
     }
 }

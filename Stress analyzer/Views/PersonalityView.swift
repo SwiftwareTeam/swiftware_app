@@ -15,17 +15,30 @@ struct PersonalityView: View {
     var body: some View {
         VStack {
             Text("Select a User: ").bold().font(.title)
-            Picker("Select a User", selection: $user) {
-                ForEach(surveyResponseViewModel.users, id: \.self) { user in
-                    Text(user)
-                    
+            if surveyResponseViewModel.users.count > 20 {
+                Picker("Select a User", selection: $user) {
+                    ForEach(Array<String>(surveyResponseViewModel.users[..<20]), id: \.self) { user in
+                        Text(user)
+
+                    }
+                }
+                .pickerStyle(.wheel)
+                .onChange(of: user) { user in
+                    Task { await analyticsViewModel.personalityScore(for: user) }
+                }
+            } else {
+                Picker("Select a User", selection: $user) {
+                    ForEach(surveyResponseViewModel.users, id: \.self) { user in
+                        Text(user)
+
+                    }
+                }
+                .pickerStyle(.wheel)
+                .onChange(of: user) { user in
+                    Task { await analyticsViewModel.personalityScore(for: user) }
                 }
             }
-            .pickerStyle(.wheel)
-            
-            .onChange(of: user) { user in
-                Task { await analyticsViewModel.personalityScore(for: user) }
-            }
+
 
             List(Array(zip(analyticsViewModel.personalityScores[user]?.categories ?? [String](),
                            analyticsViewModel.personalityScores[user]?.scores.map { String(format: "%.0f%%", $0*100.0) } ??  [String]())), id: \.self.0) { (category, score) in

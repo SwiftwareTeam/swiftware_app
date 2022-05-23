@@ -32,10 +32,7 @@ final class SurveyViewModel: ObservableObject {
             let (data, _ ) = try await URLSession.shared.data(for: request)
             
             if let surveyArray = try? JSONDecoder().decode([Survey].self, from: data) {
-                //self.users = userList
-                
                 self.surveys = Dictionary(uniqueKeysWithValues: surveyArray.map { ($0.id, $0)} )
-                print(surveys)
             }
             
             
