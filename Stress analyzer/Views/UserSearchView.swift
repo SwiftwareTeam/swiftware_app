@@ -144,11 +144,10 @@ struct UserSearchView: View {
     }
     
     func addNullUser(name: String) {
-        surveyResponseData.users.insert(name, at: 0)
-        //add api update here or when user clicks on result
+        surveyResponseData.addNewResponse(forUser: name)
     }
     func deleteUser(name: String) {
-        
+        surveyResponseData.removeResponses(forUser: name)
     }
 }
 
@@ -187,12 +186,12 @@ struct SurveyView: View {
                     
                 }.frame(height: 100)
                 
-                if surveyResponseData.surveyResp.count > 0 {
+                if surveyResponseData.surveyResponses.count > 0 {
                     
-                    Text(surveyResponseData.surveyResp[0].uid)
+                    Text(surveyResponseData.surveyResponses[0].uid)
                         .font(.largeTitle)
 
-                    var number = (surveyResponseData.surveyResp[0].responses[index] ?? 0) ?? 0
+                    var number = (surveyResponseData.surveyResponses[0].responses[index] ?? 0) ?? 0
 
                     if survey.surveys.count > 0 {
                         Spacer()
@@ -277,14 +276,21 @@ struct SurveyView: View {
         }
     }
     func clearResponse() {
-        surveyResponseData.surveyResp[0].responses[index] = nil
-        //api call
+        surveyResponseData.surveyResponses[0].responses[index] = nil
+        var responseToUpdate = surveyResponseData.surveyResponses[0]
+        responseToUpdate.responses[index] = nil as Int?
+        responseToUpdate.id = surveyResponseData.surveyResponses[0].id
+        surveyResponseData.updateExistingResponse(responseToUpdate)
     }
     func editResponse(num: Int) {
-        surveyResponseData.surveyResp[0].responses[index] = num
+        var responseToUpdate = surveyResponseData.surveyResponses[0]
+        responseToUpdate.responses[index] = num
+        responseToUpdate.id = surveyResponseData.surveyResponses[0].id
+        surveyResponseData.updateExistingResponse(responseToUpdate)
+
     }
     func loadCnt() {
-        respCount = surveyResponseData.surveyResp.count
+        respCount = surveyResponseData.surveyResponses.count
     }
 }
 
