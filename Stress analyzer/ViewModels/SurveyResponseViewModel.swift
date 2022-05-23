@@ -75,10 +75,35 @@ final class SurveyResponseViewModel: ObservableObject {
         
     }
 
-    // TODO: Implement Function
-    // Adjust function arguments as needed
-    func deleteResponse(id: UUID) async {
 
+    func deleteResponse(surveyResp: SurveyResponse) async {
+        guard let url = URL(string: baseURL + "/deleteResponse") else {
+                print("Error: cannot create URL")
+                return
+        }
+        // Create the delete request
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+
+        do{
+            guard let surveyRespData = try? JSONEncoder().encode(surveyResp) else{
+                print ("Error trying to encode Survey Response")
+                return
+            }
+
+            let (_, response) = try await URLSession.shared.upload(for: request, from: surveyRespData )
+
+            guard let httpResponse = response as? HTTPURLResponse, (200) <= httpResponse.statusCode else {
+                print("Error: Unable to decode the HTTP Response ")
+                return
+            }
+            print ("http response: " , httpResponse) //prints out response
+        }
+        catch{
+            print("Error")
+        }
     }
 
     // TODO: Implement Function
