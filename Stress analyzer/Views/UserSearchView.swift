@@ -7,9 +7,53 @@
 
 import SwiftUI
 
+struct TextFieldAlert<Presenting>: View where Presenting: View {
+
+    @Binding var isShowing: Bool
+    @Binding var text: String
+    let presenting: Presenting
+    let title: String
+
+    var body: some View {
+        GeometryReader { (deviceSize: GeometryProxy) in
+            ZStack {
+                self.presenting
+                    .disabled(isShowing)
+                VStack {
+                    Text(self.title)
+                    TextField(title, text: self.$text)
+                    Divider()
+                    HStack {
+                        Button(action: {
+                            withAnimation {
+                                self.isShowing.toggle()
+                                
+                            }
+                        }) {
+                            Text("Done").foregroundColor(.blue)
+                        }
+                    }
+                }
+                .padding()
+                .background(Color(red: 0.6843137255, green: 0.6176470588, blue: 1))
+                .frame(
+                    width: deviceSize.size.width*0.7,
+                    height: deviceSize.size.height*0.7
+                )
+                .shadow(radius: 1)
+                .opacity(self.isShowing ? 1 : 0)
+            }
+        }
+    }
+
+}
+
 struct UserSearchView: View {
+    @State var isAlert = false
     @EnvironmentObject var surveyResponseData: SurveyResponseViewModel
     @State private var searchText = ""
+    @State private var isShowingAlert = false
+    @State private var newInput = ""
     
     init() {
         UITableView.appearance().backgroundColor = UIColor(red: 0.5843137255, green: 0.5176470588, blue: 1, alpha: 1)
@@ -29,11 +73,39 @@ struct UserSearchView: View {
                     }
                 }
             }
+            .toolbar {
+                HStack{
+                    Button {
+                        //addNullUser(name: "newguy")
+                        self.isShowingAlert.toggle()
+                    } label: {
+                        Image(systemName: "person.badge.plus").foregroundColor(.white)
+                            .font(.title2)
+                    }
+                    Button {
+                        //addNullUser(name: "newguy")
+                        self.isShowingAlert.toggle()
+                    } label: {
+                        Image(systemName: "trash").foregroundColor(.white)
+                            .font(.title2)
+                    }
+                }
+            }
+            
             .navigationTitle("Users")
             .searchable(text: $searchText)
+        }
+        .textFieldAlert(isShowing: $isShowingAlert, text: $newInput, title: "New User")
+        .navigationViewStyle(StackNavigationViewStyle())
+        
+        .onChange(of: isShowingAlert) { whatever in
+            if(!isShowingAlert && newInput != "") {
+                addNullUser(name: newInput)
+                print("New user added")
+            }
             
         }
-        .navigationViewStyle(StackNavigationViewStyle())
+        
         .task {
             await surveyResponseData.getUsers()
         }
@@ -45,6 +117,9 @@ struct UserSearchView: View {
         } else {
             return surveyResponseData.users.filter({$0.contains(searchText)})
         }
+    }
+    func addNullUser(name: String) {
+        surveyResponseData.users.insert(name, at: 0)
     }
 }
 
@@ -188,6 +263,7 @@ struct SurveyView: View {
     func loadCnt() {
         respCount = surveyResponseData.surveyResp.count
     }
+    
 }
 
 struct UserSearch_Previews: PreviewProvider {
@@ -196,4 +272,16 @@ struct UserSearch_Previews: PreviewProvider {
             .environmentObject(SurveyResponseViewModel())
             .environmentObject(SurveyViewModel())
     }
+}
+extension View {
+
+    func textFieldAlert(isShowing: Binding<Bool>,
+                        text: Binding<String>,
+                        title: String) -> some View {
+        TextFieldAlert(isShowing: isShowing,
+                       text: text,
+                       presenting: self,
+                       title: title)
+    }
+
 }
