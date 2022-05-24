@@ -14,8 +14,8 @@ import Foundation
 final class SurveyResponseViewModel: ObservableObject {
     @Published var users: [String]
     @Published var surveyResponses: [SurveyResponse]
-//    let baseURL = "http://swiftware.tech"
-    let baseURL = "http://127.0.0.1:8080"
+    let baseURL = "http://swiftware.tech"
+//    let baseURL = "http://127.0.0.1:8080"
 
     init() {
         // New class properties should be initialized in here

@@ -15,8 +15,8 @@ final class AnalyticsViewModel: ObservableObject {
     /// each question of the survey.
     @Published var responseRatesBySurvey: [Int: [ChartData]]
     @Published var personalityScores: [String: PersonalityScore]
-//    let baseURL = "http://swiftware.tech"
-    let baseURL = "http://127.0.0.1:8080"
+    let baseURL = "http://swiftware.tech"
+//    let baseURL = "http://127.0.0.1:8080"
 
     init() {
         // New class properties should be initialized in here
